@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Shop</title>
+		<style>
+			h1,table{
+				text-align: center;
+			}
+			table{
+				margin: 100px auto 80px auto;
+				border-collapse: collapse;		
+			}
+			td{
+				padding: 10px;
+			}
+			
+			thead{
+				font-weight:bold;
+			}
+			#but{
+				padding-top: 30px;
+			}			
+		</style>
+	</head>
+	<body>
+		<h1>SHOP</h1>
+		<table border="1">
+			<thead>
+				<tr>
+					<td>Товар</td>
+					<td>Название товара</td>
+					<td>Цена</td>
+					<td>Масса</td>
+					<td>Сайт<br>производителя</td>					
+				</tr>		
+			</thead>
+			<tbody>
+				<tr>
+					<td><img src="001.gif"></td>
+					<td>МФУ Epson Expression Home XP-342</td>
+					<td>645$</td>
+					<td>1693г.</td>
+					<td><a href="https://epson.com/usa" target="_blank">Epson</a></td>
+				</tr>
+				<tr>
+					<td><img src="002.gif"></td>
+					<td>Планшет Apple iPad 2018 32GB MR7F2</td>
+					<td>430$</td>
+					<td>469г.</td>
+					<td><a href="https://www.apple.com/" target="_blank">Apple</a></td>
+				</tr>
+				<tr>
+					<td><img src="003.gif"></td>
+					<td>Зеркальный фотоаппарат Canon EOS 6D Mark II Body</td>
+					<td>1650$</td>
+					<td>765г.</td>
+					<td><a href="https://global.canon/en/index.html" target="_blank">Canon</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<form>
+			<table id="t2">
+				<tr>
+					<td><label>Ваше имя:</label>
+					<input type="text" placeholder="Иван Иванов" required></td>
+					<td><label>Ваш email:</label>
+					<input type="email" placeholder="ivanivanov@gmail.com" required></td>
+					<td><label>Ваш номер телефона:</label>
+					<input type="tel" placeholder="29-333-22-11" required></td>
+					<td><label>Ваберите товар:</label>
+					<select required>
+						<option> </option>
+						<option>Epson Expression Home XP-342</option>
+						<option>Apple iPad 2018 32GB MR7F2</option>
+						<option>Canon EOS 6D Mark II Body</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td id="but" colspan="4"><button>Заказать</button></td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,61 @@
+body{
+	font-size: 35px;
+	font-family: sans-serif;
+}
+div{
+	padding:10px;
+	box-sizing: border-box;
+}
+#d1{
+	float:left;
+	border:solid black 5px;
+	width:30%;
+	height: 800px;
+	background: red;
+	color:white;
+}
+#d2{
+	float:left;
+	border: 15px solid black;
+	height:800px;
+	width:65%;
+	margin-left: 10px;
+}
+#b1,#b3{
+	float: left;
+	height: 350px;
+	width:24%;
+	border:solid black 10px;
+	margin:10px;
+}
+#b2{
+	float: left;
+	height: 300px;
+	width:40%;
+	border:solid black 5px;
+	margin:10px;
+}
+#b4,#b6{
+	float: left;
+	height: 300px;
+	width:34%;
+	border:solid black 5px;
+	margin:10px;
+}
+#b5{
+	float: left;
+	height: 350px;
+	width:20%;
+	border: solid black ;
+	border-width: 20px 30px 40px 10px;
+	margin:10px;
+	background-color: orange;
+}
+#b2,#b4,#b6{
+	background-color: black;
+	color:white;
+}
+#b1,#b3{
+	background-color: orange;
+
+}

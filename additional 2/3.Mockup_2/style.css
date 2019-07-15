@@ -1,0 +1,11 @@
+body{
+	background-color: #0f83dc;
+}
+td{
+	background-color: aquamarine;
+	height:150px;
+}
+
+table{
+	margin:200px auto;
+}

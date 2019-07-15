@@ -1,0 +1,157 @@
+body{
+	background: #E68E9F;
+}
+h1{
+	text-align: center;
+	color:#8EE6DA;
+	margin-top: 100px;
+	font-size: 50px;
+	font-family: sans-serif;
+}
+div{
+	margin:350px auto;
+	width:1000px;
+}
+button{
+	width: 90px;
+	height: 30px;
+	border-radius: 7px;
+	border: 1px solid black;
+	font-weight: 700;
+}
+#b1{
+	background-color:#31F915;
+	background-image: url("https://img.icons8.com/material-rounded/24/000000/home.png");
+	background-repeat: no-repeat;
+	background-position:left center; 
+}
+#b1:hover{
+	background-color:#169A04;
+}
+#b1:active{
+	background-color:#7BFC69;
+}
+
+#b2{
+	background-color:#F6EB04; 
+	background-image: url("https://img.icons8.com/material/24/000000/restart.png");
+	background-repeat: no-repeat;
+	background-position:left center; 
+}
+#b2:hover{
+	background-color:#AFA704;
+}
+#b2:active{
+	background-color:#FCF569;
+}
+
+#b3{
+	background-color:#EB1005;
+	background-image: url("https://img.icons8.com/material/24/000000/delete-sign.png");
+	background-repeat: no-repeat;
+	background-position:left center;  
+}
+#b3:hover{
+	background-color:#AF0C04;
+}
+#b3:active{
+	background-color:#FC4E45;
+}
+
+#b4{
+	background-color:#E6058D;
+	background-image: url("https://img.icons8.com/material/24/000000/bookmark.png");
+	background-repeat: no-repeat;
+	background-position:left center;  
+}
+#b4:hover{
+	background-color:#880253;
+}
+#b4:active{
+	background-color:#FC45B4;
+}
+
+
+#b5{
+	background-color:#B903DD; 
+	background-image: url("https://img.icons8.com/material/24/000000/share.png");
+	background-repeat: no-repeat;
+	background-position:left center; 
+}
+#b5:hover{
+	background-color:#720288;
+}
+#b5:active{
+	background-color:#DB37FB;
+}
+
+
+#b6{
+	background-color:#1703CE;
+	background-image: url("https://img.icons8.com/material/24/000000/filled-trash.png");
+	background-repeat: no-repeat;
+	background-position:left center;  
+}
+#b6:hover{
+	background-color:#0E0184;
+}
+#b6:active{
+	background-color:#4A37FB;
+}
+
+
+#b7{
+	background-color:#06A0C6; 
+	background-image: url("https://img.icons8.com/material/24/000000/scroll.png");
+	background-repeat: no-repeat;
+	background-position:left center; 
+}
+#b7:hover{
+	background-color:#016A84;
+}
+#b7:active{
+	background-color:#14CDFA;
+}
+
+
+#b8{
+	background-color:#04BE91; 
+	background-image: url("https://img.icons8.com/material/24/000000/hdd.png");
+	background-repeat: no-repeat;
+	background-position:left center; 
+}
+#b8:hover{
+	background-color:#026E54;
+}
+#b8:active{
+	background-color:#14FAC3;
+}
+
+
+#b9{
+	background-color:#D27504; 
+	background-image: url("https://img.icons8.com/material/24/000000/cd.png");
+	background-repeat: no-repeat;
+	background-position:left center; 
+}
+#b9:hover{
+	background-color:#6E3D02;
+}
+#b9:active{
+	background-color:#FD9E2B;
+}
+
+
+#b10{
+	background-color:#CA0229; 
+	background-image: url("https://img.icons8.com/material/24/000000/shutdown.png");
+	background-repeat: no-repeat;
+	background-position:left center; 
+}
+#b10:hover{
+	background-color:#7E021A;
+}
+#b10:active{
+	background-color:#FD2B54;
+}
+
