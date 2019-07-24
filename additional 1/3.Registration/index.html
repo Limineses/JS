@@ -4,32 +4,66 @@
 		<meta charset="utf-8">
 		<title>Registration</title>
 		<style type="text/css">
-			h1,form{
+			h1,form
+            {
 				margin:50px auto 0px auto;
 				width:230px;
 			}
+            .label
+            {
+                margin: 20px 0px;
+            }
+            .label2
+            {
+                margin: 10px 0px;
+            }
 		</style>
 	</head>
 	<body>
 		<h1>Регистрация</h1>
+		
 		<form>
-			<label>Введите ваше имя:</label>
-			<input type="text" name=""><br><br>
-			<label>Введите ваш email:</label>
-			<input type="email" name=""><br><br>
-			<label>Укажите ваш возраст:</label>
-			<input type="number" name="" value="18"><br><br>
-			<span>Выберите план подписки:</span><br>
-			<label><input type="radio" name="reg"> <span>Месяц</span></label><br>
-			<label><input type="radio" name="reg"> <span>Полгода</span></label><br>
-			<label><input type="radio" name="reg"> <span>Год</span></label><br><br>
-			<label>Информация о себе:</label><br>
-			<textarea></textarea><br><br>
-			<span>Дополнительные услуги:</span><br>
-			<label><input type="checkbox" name=""> <span>Подписка на новости</span></label><br>
-			<label><input type="checkbox" name=""> <span>Отправление статистики</span></label><br>
-			<label><input type="checkbox" name=""> <span>Установить браузер Amigo</span></label><br><br>
+        
+		    <div class="label">
+                <label>Введите ваше имя:</label>
+                <input type="text" name="">
+            </div>            
+            <div class="label">
+                <label>Введите ваш email:</label>
+                <input type="email" name="">
+            </div>            
+            <div class="label">
+                <label>Укажите ваш возраст:</label>
+                <input type="number" name="" value="18">
+            </div>
+            
+			<span>Выберите план подписки:</span>
+            <div class="label2">
+                <label><input type="radio" name="reg"> <span>Месяц</span></label>
+            </div>            
+            <div class="label2">
+                <label><input type="radio" name="reg"> <span>Полгода</span></label>
+            </div>            
+            <div class="label2">
+                <label><input type="radio" name="reg"> <span>Год</span></label>
+            </div>
+            
+			<label>Информация о себе:</label>
+			<textarea></textarea>
+			
+			<span>Дополнительные услуги:</span>           
+            <div class="label2">
+                <label><input type="checkbox" name=""> <span>Подписка на новости</span></label>
+            </div>            
+            <div class="label2">
+                <label><input type="checkbox" name=""> <span>Отправление статистики</span></label>
+            </div>            
+            <div class="label2">
+                <label><input type="checkbox" name=""> <span>Установить браузер Amigo</span></label>
+            </div>
+            
 			<button>Зарегистрироваться</button>
+			
 		</form>
 	</body>
 </html>

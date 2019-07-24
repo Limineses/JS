@@ -1,11 +1,88 @@
-body{
-	background-color: #0f83dc;
+body
+{
+	background-color: #004854;
 }
-td{
-	background-color: aquamarine;
-	height:150px;
+div
+{
+    position: absolute;
+    background-color: #ccdadd;
 }
 
-table{
-	margin:200px auto;
+#d1
+{
+    width: 350px;
+    height: 175px;  
+    top: 250px;
+    left: 100px;
+}
+#d2
+{
+    width: 350px;
+    height: 175px;  
+    top: 435px;
+    left: 100px;
+}
+
+#d3
+{
+    width: 350px;
+    height: 360px;
+    left: 460px;
+    top: 250px;
+}
+#d4
+{
+    width: 175px;
+    height: 175px;
+    left: 820px;
+    top: 250px;
+}
+#d5
+{
+    width: 175px;
+    height: 175px;
+    left: 820px;
+    top: 435px;
+}
+#d6
+{
+    width: 175px;
+    height: 360px;
+    left: 1005px;
+    top: 435px;
+}
+#d7
+{
+    width: 175px;
+    height: 175px;
+    left: 1005px;
+    top: 250px;
+}
+#d8
+{
+    width: 175px;
+    height: 175px;
+    left: 100px;
+    top: 620px; 
+}
+#d9
+{
+    width: 340px;
+    height: 175px;
+    left: 285px;
+    top: 620px; 
+}
+#d10
+{
+    width: 175px;
+    height: 175px;
+    left: 635px;
+    top: 620px; 
+}
+#d11
+{
+    width: 175px;
+    height: 175px;
+    left: 820px;
+    top: 620px; 
 }

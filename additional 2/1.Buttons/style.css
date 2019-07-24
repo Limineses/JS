@@ -1,5 +1,5 @@
 body{
-	background: #E68E9F;
+	background: #222d3b;
 }
 h1{
 	text-align: center;
@@ -14,144 +14,150 @@ div{
 }
 button{
 	width: 90px;
-	height: 30px;
-	border-radius: 7px;
-	border: 1px solid black;
+	height: 35px;
+	border: 0px;
 	font-weight: 700;
+    font-size: 11px;
+    color: white;
+    text-align: left;
+}
+span
+{    
+    margin-left: 30px;
 }
 #b1{
-	background-color:#31F915;
-	background-image: url("https://img.icons8.com/material-rounded/24/000000/home.png");
+	background-color:#cee28b;
+	background-image: url("icons/pick.gif");
 	background-repeat: no-repeat;
 	background-position:left center; 
 }
 #b1:hover{
-	background-color:#169A04;
+	background-color:#949b54;
 }
 #b1:active{
-	background-color:#7BFC69;
+	background-color:#cee28b;
 }
 
 #b2{
-	background-color:#F6EB04; 
-	background-image: url("https://img.icons8.com/material/24/000000/restart.png");
+	background-color:#f3922e; 
+	background-image: url("icons/home.gif");
 	background-repeat: no-repeat;
 	background-position:left center; 
 }
 #b2:hover{
-	background-color:#AFA704;
+	background-color:#a16814;
 }
 #b2:active{
-	background-color:#FCF569;
+	background-color:#f3922e;
 }
 
 #b3{
-	background-color:#EB1005;
-	background-image: url("https://img.icons8.com/material/24/000000/delete-sign.png");
+	background-color:#696c6e;
+	background-image: url("icons/music.gif");
 	background-repeat: no-repeat;
 	background-position:left center;  
 }
 #b3:hover{
-	background-color:#AF0C04;
+	background-color:#4a4d4f;
 }
 #b3:active{
-	background-color:#FC4E45;
+	background-color:#696c6e;
 }
 
 #b4{
-	background-color:#E6058D;
-	background-image: url("https://img.icons8.com/material/24/000000/bookmark.png");
+	background-color:#f47a25;
+	background-image: url("icons/folder.gif");
 	background-repeat: no-repeat;
 	background-position:left center;  
 }
 #b4:hover{
-	background-color:#880253;
+	background-color:#d0541a;
 }
 #b4:active{
-	background-color:#FC45B4;
+	background-color:#f47a25;
 }
 
 
 #b5{
-	background-color:#B903DD; 
-	background-image: url("https://img.icons8.com/material/24/000000/share.png");
+	background-color:#a9baa3; 
+	background-image: url("icons/lock.gif");
 	background-repeat: no-repeat;
 	background-position:left center; 
 }
 #b5:hover{
-	background-color:#720288;
+	background-color:#6c786a;
 }
 #b5:active{
-	background-color:#DB37FB;
+	background-color:#a9baa3;
 }
 
 
 #b6{
-	background-color:#1703CE;
-	background-image: url("https://img.icons8.com/material/24/000000/filled-trash.png");
+	background-color:#837499;
+	background-image: url("icons/part.gif");
 	background-repeat: no-repeat;
 	background-position:left center;  
 }
 #b6:hover{
-	background-color:#0E0184;
+	background-color:#565361;
 }
 #b6:active{
-	background-color:#4A37FB;
+	background-color:#837499;
 }
 
 
 #b7{
-	background-color:#06A0C6; 
-	background-image: url("https://img.icons8.com/material/24/000000/scroll.png");
+	background-color:#008262; 
+	background-image: url("icons/settings.gif");
 	background-repeat: no-repeat;
 	background-position:left center; 
 }
 #b7:hover{
-	background-color:#016A84;
+	background-color:#004d43;
 }
 #b7:active{
-	background-color:#14CDFA;
+	background-color:#008262;
 }
 
 
 #b8{
-	background-color:#04BE91; 
-	background-image: url("https://img.icons8.com/material/24/000000/hdd.png");
+	background-color:#8ca884; 
+	background-image: url("icons/user.gif");
 	background-repeat: no-repeat;
 	background-position:left center; 
 }
 #b8:hover{
-	background-color:#026E54;
+	background-color:#5d7151;
 }
 #b8:active{
-	background-color:#14FAC3;
+	background-color:#8ca884;
 }
 
 
 #b9{
-	background-color:#D27504; 
-	background-image: url("https://img.icons8.com/material/24/000000/cd.png");
+	background-color:#c95e00; 
+	background-image: url("icons/bss.gif");
 	background-repeat: no-repeat;
 	background-position:left center; 
 }
 #b9:hover{
-	background-color:#6E3D02;
+	background-color:#8f3900;
 }
 #b9:active{
-	background-color:#FD9E2B;
+	background-color:#c95e00;
 }
 
 
 #b10{
-	background-color:#CA0229; 
-	background-image: url("https://img.icons8.com/material/24/000000/shutdown.png");
+	background-color:#a600ca; 
+	background-image: url("icons/power.gif");
 	background-repeat: no-repeat;
 	background-position:left center; 
 }
 #b10:hover{
-	background-color:#7E021A;
+	background-color:#720097;
 }
 #b10:active{
-	background-color:#FD2B54;
+	background-color:#a600ca;
 }
 
