@@ -1,12 +1,12 @@
 var str = prompt("Enter message");
 var arr = [];
-arr = str.split("");
-for(var i = 0; i < arr.length; i++)
-{
-    if(arr[i] == "a" || arr[i] == "e" || arr[i] == "i" || arr[i] == "u" || arr[i] == "y" || arr[i] == "o" || +
-       arr[i] == "A" || arr[i] == "E" || arr[i] == "I" || arr[i] == "U" || arr[i] == "Y" || arr[i] == "O" )       
+var vowels = "aAeEiIuUyYoO";
+for(var i = 0; i < str.length; i++)
+{  
+    if(vowels.indexOf(str[i]) == -1)  
     {
-          delete arr[i];
+        
+        arr.push(str[i]);
     }  
 }
 alert(arr.join(""));

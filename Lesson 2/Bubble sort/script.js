@@ -1,7 +1,7 @@
 var str = prompt("Enter numbers separated by spaces");
 var arr = [];
 arr = str.split(" ");
-for( var i in arr)
+for(var i = 0; i < arr.length; i++)
 {
     arr[i] = +arr[i];
 }
