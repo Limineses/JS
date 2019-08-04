@@ -1,26 +1,45 @@
 function checkTheBrackets(str)
-{ 
-    for (var i=0; i < str.length; i++)
+{
+    var br = [];
+    for(var i = 0; i < str.length; i++)
+    {
+        if(str[i] == "(" || str[i] == ")")
         {
-            if(str[i]=="(" && str[i-1]!=" ")
-                {
-                    return false;
-                }
-            else if (str[i]==")" && str[i+1]!=" ")
-                {
-                    return false;                            
-                }                       
-        } 
-    return true; 
+            br.push(str[i]);
+        }
+    }
+    for(var i = 0; i < br.length; i++)
+    {
+        if(br[i] == ")")
+        {
+            return false;
+        }
+        if(br[i] == "(")
+        {
+        var c = br.indexOf(")");
+        if(c > -1)
+        {
+            delete br[i];
+            delete br[c];         
+                
+        }
+        else
+        {
+            return false;
+        }
+            
+        }
+    }
+    return true;
 }
 
 var a = prompt("Введите предложение");
-
+checkTheBrackets(a);
 if(checkTheBrackets(a))
-    {
-        alert("Скобки расставлены верно");
-    }
+{
+    alert("Скобки расставлены верно");
+}
 else
-    {
-        alert("Скобки расставлены неверно");
-    }
+{
+    alert("Скобки расставлены неверно");
+}

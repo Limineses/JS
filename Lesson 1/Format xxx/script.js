@@ -1,24 +1,13 @@
-/*
-function format (N)
+var N = prompt("Введите число");
+var xxx = [];
+var count = 0;
+for(var i = N.length - 1 ; i >= 0; i--)
 {
-    if(N < 1)
-        {
-            return 0;
-        }
-    else
-        {
-            xxx = N % 1000 + " " + xxx;
-            N /= 1000;
-            format(N.toFixed(0));            
-        }
-    return xxx;
+    if(count % 3 == 0)
+    {
+        xxx.unshift(" ");
+    }
+    xxx.unshift(N[i]);
+    count++;
 }
-
-var N = +prompt("Введите число");
-var xxx = "";
-format(N);
-alert (xxx);
-*/
-
-var N = +prompt("Введите число");
-alert(N.toLocaleString());
+alert(xxx.join(""));

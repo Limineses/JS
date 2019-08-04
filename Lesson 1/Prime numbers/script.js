@@ -1,6 +1,6 @@
 function primeNumbers(N)
 {
-    for(var i = 2; i < N; i++)
+    for(var i = 2; i < Math.sqrt(N)+1; i++)
         {
             if(N % i == 0)
                 {
@@ -11,7 +11,7 @@ function primeNumbers(N)
 }
 
 var N = +prompt("Введите число");
-var answer = "";
+var answer = "2  ";
 for (var i = 3; i <= N; i++)
     {
         if(primeNumbers(i))
