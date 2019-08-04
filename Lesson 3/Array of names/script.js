@@ -7,13 +7,13 @@ for(var i = 0; i < 100; i++)
         age: Math.floor(10 + (50 - 10) * Math.random()) ,
         nameAge: function()
         {
-            console.log(this.name + "  " + this.age );
+            console.log("Hi, I'm " + this.name + " " + this.age + " years old.");
         }
     } 
 }
 
 people.forEach(function(elem)
 {
-    console.log("Hi, I'm " + elem.name + " " + elem.age + " years old.")
+    elem.nameAge();
 });
 

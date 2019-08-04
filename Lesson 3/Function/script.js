@@ -13,7 +13,7 @@ function harmonic()
     var sum = 0;
     for(var i = 0; i < arguments.length; i++)
     {
-        sum += Math.pow(arguments[i], -1);
+        sum += 1 / arguments[i];
     }
     return arguments.length / sum;
 }
