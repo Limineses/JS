@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Calculator</title>
+		<script src="script.js" defer></script>
+		<style>
+			body{background: #B7BEDD;}
+			td
+			{
+				width: 100px;
+				height: 75px;
+				border: 1px solid black;
+				font-size: 40px;
+				text-align: center;
+				background: #515877;
+
+			}
+			table
+			{
+				border: 1px solid black;
+				margin: 100px auto;
+				background: #ACA3A3;
+
+			}
+			#display
+			{
+				height: 175px;
+				font-size: 70px; 
+				background: #D7CDCD;
+				max-width: 410px;
+				overflow: auto;
+				text-align: right;
+			}
+		</style>
+	</head>
+	<body>
+		<table>
+			<tbody>
+				<tr>
+					<td colspan="4" id="display"></td>
+				</tr>
+				<tr>					
+					<td id="cleanDisplay">ON/C</td>
+					<td id="division">&#247;</td>
+					<td id="sqrt">&radic;</td>
+					<td id="deleteOneSymbol">&#8592;</td>
+				</tr>
+				<tr>
+					<td id="memoryOutput">M</td>
+					<td id="memoryClean">MC</td>
+					<td id="memoryMinus">M-</td>
+					<td id="memoryPlus">M+</td>
+				</tr>
+				<tr>
+					<td id="num7">7</td>
+					<td id="num8">8</td>
+					<td id="num9">9</td>
+					<td id="multiplication">&#215</td>
+				</tr>
+				<tr>
+					<td id="num4">4</td>
+					<td id="num5">5</td>
+					<td id="num6">6</td>
+					<td id="minus">-</td>
+				</tr>
+				<tr>
+					<td id="num1">1</td>
+					<td id="num2">2</td>
+					<td id="num3">3</td>
+					<td rowspan="3" id="plus">+</td>
+				</tr>
+				<tr>
+					<td id="num0">0</td>
+					<td id="point">.</td>
+					<td id="equally">=</td>
+				</tr>
+			</tbody>
+		</table>			
+	</body>
+</html>
