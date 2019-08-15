@@ -4,76 +4,17 @@ var sum = 0;
 var number = 0;
 var memory = 0;
 
-var num1 = document.getElementById('num1');
-num1.addEventListener('click', function()
+for(var i = 0; i < 10; i++)
 {
-	display.innerHTML += "1";
-	outputFormat();
-});
-
-var num2 = document.getElementById('num2');
-num2.addEventListener('click', function()
-{
-	display.innerHTML += "2";
-	outputFormat();
-
-});
-
-var num3 = document.getElementById('num3');
-num3.addEventListener('click', function()
-{
-	display.innerHTML += "3";
-	outputFormat();
-});
-
-var num4 = document.getElementById('num4');
-num4.addEventListener('click', function()
-{
-	display.innerHTML += "4";
-	outputFormat();
-});
-
-var num5 = document.getElementById('num5');
-num5.addEventListener('click', function()
-{
-	display.innerHTML += "5";
-	outputFormat();
-});
-
-var num6 = document.getElementById('num6');
-num6.addEventListener('click', function()
-{
-	display.innerHTML += "6";
-	outputFormat();
-});
-
-var num7 = document.getElementById('num7');
-num7.addEventListener('click', function()
-{
-	display.innerHTML += "7";
-	outputFormat();
-});
-
-var num8 = document.getElementById('num8');
-num8.addEventListener('click', function()
-{
-	display.innerHTML += "8";
-	outputFormat();
-});
-var num9 = document.getElementById('num9');
-num9.addEventListener('click', function()
-{
-	display.innerHTML += "9";
-	outputFormat();
-});
-
-var num0 = document.getElementById('num0');
-num0.addEventListener('click', function()
-{
-	display.innerHTML += "0";
-	outputFormat();
-});
-
+	var numberEvent = document.getElementById('num' + i);
+	(function(e){
+		numberEvent.addEventListener('click', function()
+		{	
+			display.innerHTML += "" + e;
+			outputFormat();
+		});
+	}(i));
+}
 var point = document.getElementById('point');
 point.addEventListener('click', function()
 {
@@ -207,25 +148,23 @@ function checkLastStep()
 	{
 		return;
 	}
-	if(symbol == '+')
+	switch(symbol)
 	{
-		sum += number;			
-	}
-	if(symbol == '-')
-	{
-		sum -= number;			
-	}
-	if(symbol == '*')
-	{
-		sum *= number;			
-	}
-	if(symbol == '/')
-	{
-		sum /= number;
-	}
-	if(symbol == '')
-	{
-		sum = number;
+		case '+':
+			sum += number;
+			break;
+		case '-':
+			sum -= number;
+			break;
+		case '*':
+			sum *= number;
+			break;
+		case '/':
+			sum /= number;
+			break;
+		case '':
+			sum = number;
+			break;
 	}
 }
 function outputSum(elem)
@@ -300,6 +239,10 @@ function addCommas(arr)
 	    }
 	    xxx.unshift(arr[i]);
 	    count++;
+	}
+	if(xxx[0] == '-' && xxx[1] == ',')
+	{
+		delete xxx[1];
 	}
 	return xxx;
 }
