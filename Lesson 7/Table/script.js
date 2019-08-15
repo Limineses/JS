@@ -22,8 +22,11 @@ for(var j = 0; j < N; j++)
 
 tbody.addEventListener('mousedown', function(e)
 {
-	var r = Math.ceil(255*Math.random());
-	var g = Math.ceil(255*Math.random());
-	var b = Math.ceil(255*Math.random());
-	e.target.style.backgroundColor = 'rgb('+r+','+g+','+b+')';
-})
+	if(e.target.nodeName = 'TD')
+	{
+		var r = Math.ceil(255*Math.random());
+		var g = Math.ceil(255*Math.random());
+		var b = Math.ceil(255*Math.random());
+		e.target.style.backgroundColor = 'rgb('+r+','+g+','+b+')';
+	}
+});
