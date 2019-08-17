@@ -1,0 +1,177 @@
+body
+{
+	margin: 0;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+}
+div
+{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
+header
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 20px;
+	z-index: 5;
+	background-color: black;
+}
+ul
+{
+	list-style: none;
+	margin: auto 0;
+	padding:0;
+}
+	li
+	{
+		display: inline;
+		font-family: sans-serif;
+		color: white;
+		font-weight: 600;
+		margin-left: 16%;
+	}
+#preload
+{
+	height: 100%;
+	width: 100%;
+	background: url(image/preload.gif) center center black no-repeat ;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+}
+#page1
+{
+	
+}
+	#back1
+	{
+		height: 120%;
+		background: url(image/page1/back1.png);
+		background-size: 100% 100%;
+	}
+	#knife1
+	{
+		background: url(image/page1/knife1.png) no-repeat;
+		background-size: 100% 100%;
+	}
+	#page2
+	{
+		top:100%;
+	}
+	#back2
+	{
+		width: 120%;
+		background: url(image/page2/back2.jpg);
+		background-size: 100% 100%;
+		background-position:100% -50%;
+	}
+	#knife2
+	{
+		background: url(image/page2/knife2.png) no-repeat;
+		background-size: 100% 100%;
+		z-index:3;
+	}
+	#vegetable1
+	{
+		background: url(image/page2/vegetable1.png);
+		background-size: 100% 100%;
+	}
+	#vegetable2
+	{
+		background: url(image/page2/vegetable2.png);
+		background-size: 100% 100%;
+	}
+	#vegetable3
+	{
+		background: url(image/page2/vegetable3.png);
+		background-size: 100% 100%;
+	}
+	#info2
+	{
+		height: 90%;
+		background: url(image/page2/info2.png);
+		background-size: 100% 100%;
+	}
+#page3
+{
+	top: 200%;
+}
+	#back3
+	{
+		width: 120%;
+		background: url(image/page3/back3.jpg);
+		background-size: 100% 100%;
+	}
+
+	#knife3
+	{
+		background: url(image/page3/knife3.png) no-repeat;
+		background-size: 100% 100%;
+		z-index:3;
+	}
+	#fish
+	{
+		background: url(image/page3/fish.png);
+		background-size: 100% 100%;
+	}
+	#roll
+	{
+		background: url(image/page3/roll.png);
+		background-size: 100% 100%;
+	}
+	#info3
+	{
+		height: 90%;
+		background: url(image/page3/info3.png);
+		background-size: 100% 100%;
+	}
+#page4
+{
+	top: 300%;
+}
+	#back4
+	{
+		width: 120%;
+		background: url(image/page4/back4.jpg);
+		background-size: 100% 100%;
+	}
+	#knife4
+	{
+		background: url(image/page4/knife4.png) no-repeat;
+		background-size: 100% 100%;
+		z-index:3;
+	}
+	#meat
+	{
+		background: url(image/page4/meat.png);
+		background-size: 100% 100%;
+	}
+	#chili
+	{
+		background: url(image/page4/chili.png);
+		background-size: 100% 100%;
+	}
+	#info4
+	{
+		height: 90%;
+		background: url(image/page4/info4.png);
+		background-size: 100% 100%;
+	}
+footer
+{
+	width: 100%;
+	height: 10%;
+	background-color: #B2B2B2;
+	position: absolute;
+	top: 400%;
+	text-align: center;
+	color: #DBDBDB;
+}
+::-webkit-scrollbar { width: 7px; height: 3px;}
+::-webkit-scrollbar-track-piece { background-color: #8B8B8B;}
+::-webkit-scrollbar-thumb { height: 40px; background-color: #000000; border-radius: 3px;}
