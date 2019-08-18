@@ -1,0 +1,147 @@
+body
+{
+	background-color: #5F5F5F;
+
+}
+#screen
+{
+	width: 500px;
+	height: 200px;
+	position: fixed;
+	left: 20px;
+	top: 100px;
+	background: url(image/screen.png) no-repeat center black;
+}
+#controlPanel
+{
+	box-sizing: border-box;
+	border: 1px solid black;
+	height: 30px;
+	width: 500px;
+	position: fixed;
+	left: 20px;
+	top: 300px;
+	background: linear-gradient(to top, #252525, #565656);
+	box-shadow: 1px 2px 2px black;
+}
+	input
+	{ 
+		margin-top: 2px;
+		height: 25px; 
+		width: 25px; 
+		border: 0px; 
+		margin-left: 3px; 
+		outline: none;
+	}
+	#play{background: url('image/play.png') no-repeat center center;}
+	#pause{background: url('image/pause.png') no-repeat center center;}
+	#stop{background: url('image/stop.png') no-repeat center center;}
+	#range
+	{
+		-webkit-appearance: none;
+		position: absolute;
+		background: #808080;
+		top: 9px;
+		left: 100px;
+	    border-radius: 10px;
+	    width: 90px;
+	    height: 7px;
+	    outline : none;
+	}
+	#range::-webkit-slider-thumb
+	{
+	    -webkit-appearance: none;
+	    width:15px;
+	    height:15px;
+	    background: #000000;
+	    border-radius:10px;
+	    transition: 1s;
+	}
+	#vol
+	{
+		position: fixed;
+		height: 90px;
+		width: 30px;
+		top: 240px;
+		left: 365px;
+		z-index: 5;
+	}
+	#volume
+	{
+		background: url('image/volume.png') no-repeat center center;
+		left: 365px;
+		top:302px;
+		position: fixed;
+	}
+	#volumeRange
+	{
+		-webkit-appearance: none;
+		border-radius: 10px;
+		background: #808080;
+		width: 60px;
+	    height: 5px;
+		left: 348px;
+		top: 269px;
+		position: fixed;
+		transform: rotate(270deg);
+		display: none;
+	}
+	#volumeRange::-webkit-slider-thumb
+	{
+	    -webkit-appearance: none;
+	    width:15px;
+	    height:15px;
+	    background: #2F2F2F;
+	    border-radius:10px;
+	    transition: 1s;
+	}
+	#slow
+	{
+		background: url('image/slow.png') no-repeat center center;
+		left: 225px;
+		top:302px;
+		position: fixed;
+	}
+	#fast
+	{
+		background: url('image/fast.png') no-repeat center center;
+		left: 275px;
+		top:302px;
+		position: fixed;
+	}
+	#loop
+	{
+		background: url('image/loop.png') no-repeat center center;
+		left: 320px;
+		top:302px;
+		position: fixed;
+	}
+	#time
+	{
+		position: absolute;
+		padding-top: 3px;
+		top: 2px;
+		left: 383px;
+		height: 20px;
+		width: 120px;
+		color: #000000;
+		font-weight: 600;
+		font-style: italic;
+	}
+#playList
+{
+	box-sizing: border-box;
+	border: 1px solid black;
+	height: 230px;
+	width: 150px;
+	position: fixed;
+	left: 520px;
+	top: 100px;
+	background: linear-gradient(45deg, #252525, #565656);
+	box-shadow: 1px 2px 2px black;
+	overflow: auto;
+}
+.loopActive
+{
+	background: url('image/loopActive.png') no-repeat center center!important;
+}

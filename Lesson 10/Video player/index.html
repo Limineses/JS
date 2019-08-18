@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Player</title>
+	<link rel="sschortcut icon" href="image/playerIco.png">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<audio src="music/Valkiriya.mp3" id="audio"></audio>
+
+	<div id="player">
+		<div id="screen"></div>
+
+		<div id="controlPanel">
+			<input type="button" id="play">
+			<input type="button" id="pause">
+			<input type="button" id="stop">
+			<input type="range" id="range">
+			<div id="vol">
+				<input type="button" id="volume">
+				<input type="range" id="volumeRange" value="100">
+			</div>
+			<input type="button" id="slow">
+			<input type="button" id="fast">
+			<input type="button" id="loop">
+			<div id="time"></div>
+		</div>
+
+		<div id="playList"></div>
+	</div>
+
+	<script src="script.js"></script>
+</body>
+</html>
