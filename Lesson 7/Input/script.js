@@ -28,7 +28,7 @@ input.addEventListener('keydown', function(e)
 	{
 		e.preventDefault();
 	}
-	if(str[str.length-1] =='@' && char == '@')
+	if(char == '@' && str.indexOf('@')!= -1)
 	{
 		e.preventDefault();
 	}
