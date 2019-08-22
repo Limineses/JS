@@ -4,8 +4,6 @@ var range = document.getElementById('range');
 var time = document.getElementById('time');
 var loop = document.getElementById('loop');
 
-var swapForVolume = true;
-var swapForLoop = true;
 audio.addEventListener('loadedmetadata', function()
 {
 	range.max = Math.trunc(audio.duration);
@@ -24,8 +22,7 @@ audio.addEventListener('loadedmetadata', function()
 				audio.load();
 				break;
 			case 'volume':
-				audio.muted = swapForVolume;
-				swapForVolume =!swapForVolume;
+				audio.muted = !audio.muted;
 				break;
 			case 'slow':
 				audio.playbackRate -= 0.5;
@@ -34,8 +31,7 @@ audio.addEventListener('loadedmetadata', function()
 				audio.playbackRate += 0.5;
 				break;
 			case 'loop':
-				audio.loop = swapForLoop;
-				swapForLoop =!swapForLoop;
+				audio.loop = !audio.loop;
 				loop.classList.toggle('loopActive');
 				break;
 		}

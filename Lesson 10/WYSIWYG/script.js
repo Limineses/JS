@@ -2,13 +2,54 @@ var editor = document.getElementById('editor');
 editor.contentEditable = true;
 
 var panel = document.getElementById('panel');
+
+var buttonsPanel = ['bold','italic','underline', 'removeformat', 'createlink', 'unlink', 'backcolor', 'forecolor', 'insertorderedlist', 'insertunorderedlist', 'insertimage'];
+var valuesButtons = ['B', 'I', 'U', 'Del', 'Link', 'Unlink', '', '', '1', '.', ':)'];
+
+var string ='';
+for(var i = 0; i < buttonsPanel.length; i++)
+{
+	if(buttonsPanel[i] == 'backcolor' || buttonsPanel[i] == 'forecolor')
+	{
+		string += '<input type="color" id="'+buttonsPanel[i]+'">';
+	}
+	else
+	{
+		string += '<input type="button" value="'+valuesButtons[i]+'" id="'+buttonsPanel[i]+'">';
+	}
+}
+panel.innerHTML = string;
+
+//fontsize
+string = '<select name="" id="fontsize">';
+for(var i = 1; i < 8; i++)
+{
+	string += '<option value="'+i+'" id="'+i+'">'+i+'</option>';
+}
+string += '</select>';
+panel.innerHTML += string;
+
+//fontname
+string = '<select name="" id="fontname">';
+var valuesFontname = ['serif', 'sans-serif', 'monospace'];
+for(var i = 0; i < 3; i++)
+{
+	string += '<option value="'+valuesFontname[i]+'" id="'+i+1+'">'+valuesFontname[i]+'</option>';
+}
+string += '</select>';
+panel.innerHTML += string;
+
 panel.addEventListener('click', function(e)
 {
 	if(e.target.nodeName == 'INPUT')
 	{
 		if(e.target.id == 'createlink')
 		{
-			document.execCommand('createlink', false, '#');
+			var link = prompt('Enter address: ')
+			if(link)
+			{
+				document.execCommand('createlink', false, link);
+			}			
 			return;
 		}
 		if(e.target.id == 'insertimage')
