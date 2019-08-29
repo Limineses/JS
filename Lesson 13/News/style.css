@@ -1,0 +1,48 @@
+div
+{
+	margin: 100px 20%;
+	padding: 10px;
+	width: 60%;
+	background: #CFCFCF;
+}
+div:hover
+{
+	background: #BABABA;
+	cursor: pointer;
+}
+img
+{
+	width: 100%;
+}
+.nav
+{
+	background: white;
+	position: absolute;
+	margin:0;
+	height: 20px;
+	top: 25px;
+	left: 20%;
+}
+	.nav a
+	{
+		margin: 0 10px;
+		padding: 5px;
+		text-decoration: none;
+		color: blue;
+	}
+.nav:hover
+{
+	background: white;
+}
+#search
+{
+	width: 100%;
+	margin-bottom: 15px;
+}
+#container
+{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	background: white;
+}
