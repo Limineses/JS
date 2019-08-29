@@ -1,0 +1,87 @@
+body
+{
+	background: #CEBCD7;
+	padding: 0;
+	margin: 0;
+	outline: none;
+}
+nav
+{
+	position: absolute;
+	width: 80%;
+	height: 10%;
+	background: #BA3939;
+	left: 10%;
+}
+	nav > a
+	{
+		float: left;
+		height: 100%;
+		width: 25%;
+		background: #575757;
+		text-align: center;
+		font-size: 50px;
+		line-height: 150%;
+		border: 1px solid black;
+		box-sizing: border-box;
+		text-decoration: none;
+		color: black;
+	}
+	nav > a:hover
+	{
+		background: #404040;
+	}
+	.active
+	{
+		background: #404040;
+	}
+#contain
+{
+	position: absolute;
+	width: 80%;
+	height: 90%;
+	top: 10%;
+	left: 10%;
+	border: 1px solid black;
+	box-sizing: border-box;
+	background: #CC8F8F;
+	overflow: auto;
+}
+#button_2
+{
+	position: absolute;
+	top: 50%;
+	left: 45%;
+	width: 10%;
+	height: 5%;
+}
+table
+{
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: 150px auto;
+}
+td
+{
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+.red
+{
+    background-color: red;
+}
+.mult_tab
+{
+    width: 25px;
+    height: 25px;
+}
+.diagonal
+{
+    background: aquamarine;
+}
+.load
+{
+	background: url(preload.gif) no-repeat center center #CC8F8F!important;
+}
