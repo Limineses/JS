@@ -1,10 +1,10 @@
-var canvas = document.getElementById('canvas');
-var ctx = canvas.getContext('2d');
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
 
 var imageData;
 var len;
 
-var filters = document.getElementById('filters');
+const filters = document.getElementById('filters');
 filters.addEventListener('click', function(e)
 {
 	switch(e.target.id)
@@ -64,11 +64,11 @@ canvas.addEventListener('drop', function(e)
 {
 	e.preventDefault();
 
-	var file = e.dataTransfer.files[0];
-	var reader = new FileReader();
+	const file = e.dataTransfer.files[0];
+	const reader = new FileReader();
 	reader.onload = function()
 	{
-		var img = new Image();
+		const img = new Image();
 		img.src = this.result;
 		img.onload = function()
 		{

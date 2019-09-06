@@ -1,5 +1,5 @@
-var audio = document.querySelector('audio');
-var video = document.querySelector('video');
+const audio = document.querySelector('audio');
+const video = document.querySelector('video');
 
 video.addEventListener('loadedmetadata', function()
 {
