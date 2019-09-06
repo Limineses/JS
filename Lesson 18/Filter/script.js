@@ -1,5 +1,5 @@
-var canvas = document.getElementById('canvas');
-var ctx = canvas.getContext('2d');
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
 
 ctx.strokeStyle = '#06FF00';
 ctx.lineWidth = 3;
@@ -29,7 +29,7 @@ ctx.fill();
 
 ctx.restore();
 
-var img = new Image();
+const img = new Image();
 img.crossOrigin = "Anonymous";
 img.src = 'https://cfl.dropboxstatic.com/static/images/index/rebrand/co_create/desktop/dropbox_digital_desktop_01-vflTDaJ3U.jpg';
 
