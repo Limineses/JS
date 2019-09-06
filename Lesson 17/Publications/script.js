@@ -8,12 +8,12 @@ var Publications =
 
 	onDataLoaded(data)
 	{
-		this.Data.posts = data.map(function(obj)
+		this.Data.posts = data.map(obj=>
 		{
-			var post = new Post(obj.author.name, obj.author.image, obj.text, obj.likes);
-			obj.comments.forEach(function(com)
+			const post = new Post(obj.author.name, obj.author.image, obj.text, obj.likes);
+			obj.comments.forEach(com=>
 			{
-				var comment = new Comments(com.author.name, com.author.image, com.text, com.likes);
+				const comment = new Comments(com.author.name, com.author.image, com.text, com.likes);
 				post.addComment(comment);
 			});
 			return post;
@@ -23,17 +23,17 @@ var Publications =
 
 	buildPage()
 	{
-		var count = 0;
+		var count = -1;
 		var str = '';
-		this.Data.posts.forEach(function(e)
+		const result = this.Data.posts.reduce((str,e)=>
 		{
-			str = 
+			count++;
+			return str += 
 			`<div data-n="${count}" class="post">
 			${Publications.buildPublication(e)}
 			</div>`;
-			Publications.Dom.container.innerHTML += str;
-			count++;		
-		});
+		},'');
+		Publications.Dom.container.innerHTML += result;
 		this.EventHandlers.clickButtons();
 		this.EventHandlers.focusArea();
 		this.EventHandlers.pressEnter();
@@ -41,8 +41,7 @@ var Publications =
 
 	buildPublication(data)
 	{
-		var str = 
-		` <div class="publication">
+		return ` <div class="publication">
 			<div class="author">
 				<img src="${data.image}"/>
 				<span class="authorname">${data.name}</span>
@@ -60,13 +59,12 @@ var Publications =
 			${this.buildArea()}
 		</div>
 		`;
-		return str;
 	},
 
 	buildComment(data)
 	{
 		var str = '';
-		data.forEach(function(e)
+		data.forEach(e=>
 		{
 			str += Publications.buildMessage(e);
 			
@@ -76,8 +74,7 @@ var Publications =
 
 	buildMessage(e)
 	{
-		var str =
-		` <div class="comment">
+		return ` <div class="comment">
 			<div class="author">
 				<img src="${e.image}"/>
 				<span class="authorname">${e.name}</span>
@@ -91,32 +88,29 @@ var Publications =
 				<input type="button" class="butlik"/><div class="countlik">${e.likes}</div>
 			</div>				
 		</div>`;
-		return str;
 	},
+
 	buildArea()
 	{
-		var str =
-		`<div class="inputcom">	
+		return `<div class="inputcom">	
 				<textarea class="area"></textarea><input type="button" value="Отправить" class="send">
 		</div>`;
-		return str
 	},
 
 	EventHandlers :
 	{
 		clickButtons()
 		{
-			var pst = document.querySelectorAll('.post');
-			for(let i = 0; i < pst.length; i++)
+			Array.from(document.querySelectorAll('.post')).forEach(elem=>
 			{
-				pst[i].addEventListener('click', function(e)
+				elem.addEventListener('click', function(e)
 				{
-					Publications.EventHandlers.openComments(e, pst[i]);
-					Publications.EventHandlers.liked(e);
-					Publications.EventHandlers.sendMessage(e, pst[i]);
+					Publications.EventHandlers.openComments(e, elem);
+					Publications.EventHandlers.liked(e.target);
+					Publications.EventHandlers.sendMessage(e.target, elem);
 
 				});
-			}
+			});
 		},
 
 		openComments(e, x)
@@ -129,21 +123,21 @@ var Publications =
 
 		liked(e)
 		{
-			if(e.target.classList.value.includes('butlik'))
+			if(e.classList.value.includes('butlik'))
 			{
-				e.target.classList.toggle('active');
+				e.classList.toggle('active');
 
-				if(e.target.getAttribute('data-like') == 'true')
+				if(e.getAttribute('data-like') == 'true')
 				{
-					e.target.nextSibling.innerHTML--;
-					e.target.removeAttribute('data-like');
+					e.nextSibling.innerHTML--;
+					e.removeAttribute('data-like');
 					return;
 				}
 
-				if(e.target.getAttribute('data-like') == null)
+				if(e.getAttribute('data-like') == null)
 				{
-					e.target.nextSibling.innerHTML++;
-					e.target.setAttribute('data-like', 'true');
+					e.nextSibling.innerHTML++;
+					e.setAttribute('data-like', 'true');
 					return;
 				}
 			}
@@ -151,13 +145,13 @@ var Publications =
 
 		sendMessage(e, x)
 		{
-			if(e.target.classList.value =='send')
+			if(e.classList.value =='send')
 			{
-				var mes = e.target.previousSibling.value;
-				var user = new Comments("User", "image/avatar/User.jpg", mes, 0);
+				var mes = e.previousSibling.value;
+				const user = new Comments("User", "image/avatar/User.jpg", mes, 0);
 				mes = '';
 
-				var numb = x.children[1].children.length;
+				const numb = x.children[1].children.length;
 
 				x.children[1].children[numb-1].remove();
 
@@ -190,8 +184,8 @@ var Publications =
 				if(e.key == 'Enter')
 				{
 					e.preventDefault();
-					var el = Publications.Dom.elem;
-					var event = new Event('click', {bubbles: true});
+					const el = Publications.Dom.elem;
+					const event = new Event('click', {bubbles: true});
 					el.dispatchEvent(event);
 				}
 			});
