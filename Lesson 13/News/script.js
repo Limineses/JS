@@ -108,10 +108,9 @@ function doSearch()
 	for(var i in allNews)
 	{
 		var elem = allNews[i];
-		if(news.includes(elem)){continue;}
 		for(var j in elem.tags)
 		{
-			if(tags.includes(elem.tags[j]))
+			if(tags.includes(elem.tags[j]) && !news.includes(elem))
 			{
 				news.push(elem);
 			}
