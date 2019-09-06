@@ -41,11 +41,12 @@ class Plan
 
 	priority()
 	{
-		this.list.sort((a, b) =>
+		var arr = this.list.slice();
+		arr.sort((a, b) =>
 		{
 			return b.priority - a.priority;
 		});
-		return this.list;
+		return arr;
 	}
 
 	date(x)

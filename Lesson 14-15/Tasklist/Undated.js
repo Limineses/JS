@@ -5,13 +5,13 @@ class Undated
 		this.list = new Set();
 	}
 
-	add(name)
+	add(task)
 	{
-		this.list.add(name);
+		this.list.add(task.name);
 	}
 
-	delete(name)
+	delete(task)
 	{
-		this.list.delete(name);
+		this.list.delete(task);
 	}
 }
