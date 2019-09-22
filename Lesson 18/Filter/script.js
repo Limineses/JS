@@ -33,14 +33,14 @@ const img = new Image();
 img.crossOrigin = "Anonymous";
 img.src = 'https://cfl.dropboxstatic.com/static/images/index/rebrand/co_create/desktop/dropbox_digital_desktop_01-vflTDaJ3U.jpg';
 
-var imageData;
-var len;
+function getDataImage()
+{
+	return ctx.getImageData(0, 0, 1000, 500);
+}
 
 img.onload = function()
 {
 	ctx.drawImage(img, 500, 0);
-	imageData = ctx.getImageData(0, 0, 1000, 500);
-	len = imageData.data.length;
 }
 
 
@@ -64,9 +64,10 @@ filters.addEventListener('click', function(e)
 
 function negative()
 {
-	for(var i = 0; i < len; i+=4)
+	const imageData = getDataImage();
+	for(let i = 0; i < imageData.data.length; i+=4)
 	{
-		for(var j = 0; j < 3; j++)
+		for(let j = 0; j < 3; j++)
 		{
 			imageData.data[i+j] = 255 - imageData.data[i+j];
 		}
@@ -76,7 +77,8 @@ function negative()
 
 function blackWhite()
 {
-	for(var i = 0; i < len; i+=4)
+	const imageData = getDataImage();
+	for(let i = 0; i < imageData.data.length; i+=4)
 	{	
 		imageData.data[i+1] = 0;
 		imageData.data[i+2] = 0;
@@ -86,11 +88,10 @@ function blackWhite()
 
 function myFilter()
 {
-	for(var i = 0; i < len; i+=4)
+	const imageData = getDataImage();
+	for(let i = 0; i < imageData.data.length; i++)
 	{	
-		imageData.data[i] += 10;
-		imageData.data[i+1] += 40;
-		imageData.data[i+2] += 60;
+		if(imageData.data[i] <= 155) imageData.data[i]+= 100;
 	}
 	ctx.putImageData(imageData, 0, 0);
 }

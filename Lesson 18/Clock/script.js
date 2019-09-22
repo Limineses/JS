@@ -8,8 +8,6 @@ const Clock =
 		ctx.lineCap = 'round';
 		ctx.translate(150, 150);
 
-		this.getTurnCurrentTime();
-
 		setInterval(this.goClock, 1000);
 	}
 
@@ -22,7 +20,8 @@ const Clock =
 		var h = d.getHours();
 		h > 12 ? h -= 12 : h = h;
 		const timeInSeconds = h * 60 * 60 + m * 60 + s;
-		turn = timeInSeconds * (2 * Math.PI / 43200);
+		const resultTurn = timeInSeconds * (2 * Math.PI / 43200);
+		return resultTurn;
 	}
 
 	,Draw:
@@ -56,7 +55,7 @@ const Clock =
 				ctx.strokeText(e, 0, -100);
 			});
 		}
-		,secondsArrow()
+		,secondsArrow(turn)
 		{
 			ctx.lineWidth = 1;
 			ctx.strokeStyle = '#FF0000';
@@ -67,7 +66,7 @@ const Clock =
 			ctx.stroke();
 		}
 
-		,minutesArrow()
+		,minutesArrow(turn)
 		{
 			ctx.lineWidth = 4;
 			ctx.strokeStyle = '#090909';
@@ -78,7 +77,7 @@ const Clock =
 			ctx.stroke();
 		}
 
-		,hoursArrow()
+		,hoursArrow(turn)
 		{
 			ctx.lineWidth = 7;
 			ctx.rotate(turn);
@@ -93,15 +92,16 @@ const Clock =
 		ctx.restore();
 		ctx.clearRect(-150, -150, 300, 300);
 		Clock.Draw.clock ();
-		turn += 2 * Math.PI / 43200;
+		
+		const turn = Clock.getTurnCurrentTime();
 
-		Clock.Draw.secondsArrow();
-
-		ctx.restore();
-		Clock.Draw.minutesArrow();
+		Clock.Draw.secondsArrow(turn);
 
 		ctx.restore();
-		Clock.Draw.hoursArrow();	
+		Clock.Draw.minutesArrow(turn);
+
+		ctx.restore();
+		Clock.Draw.hoursArrow(turn);	
 	}
 }
 
