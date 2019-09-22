@@ -7,11 +7,17 @@ class Undated
 
 	add(task)
 	{
-		this.list.add(task.name);
+		this.list.add(task);
 	}
 
-	delete(task)
+	delete(name)
 	{
-		this.list.delete(task);
+		this.list.forEach( e=>
+		{
+			if(e.name == name)
+			{
+				this.list.delete(e);
+			}
+		})
 	}
 }

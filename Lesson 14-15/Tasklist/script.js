@@ -11,12 +11,10 @@ var PlanTask =
 		undated = new Undated();
 		data.forEach(e =>
 		{
-			if(e.date == ''){ undated.add(e) }
-			else
-			{ 
-				const task = new Task(e.name, e.priority, e.date);
-				plan.add(task); 
-			}
+			const task = new Task(e.name, e.priority, e.date);
+
+			if(e.date == '') undated.add(task);
+			else plan.add(task);
 		});	
 		this.Tests();
 	}
@@ -34,7 +32,7 @@ var PlanTask =
 
 		console.log('__'.repeat(50));
 		console.log(undated.list);
-		var task3 = new Task('уборка','','');
+		var task3 = new Task('уборка','1','');
 		undated.add(task3);
 		console.log(undated.list);
 		undated.delete('книга');
