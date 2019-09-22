@@ -2,6 +2,7 @@
 {
 	margin: 0;
 	padding: 0;
+	word-wrap: break-word ;
 }
 body
 {
@@ -125,6 +126,7 @@ textarea
 	max-width: 100%;
 	height: 50px;
 	font-size: 18px	;
+	resize: none;
 }
 .send
 {

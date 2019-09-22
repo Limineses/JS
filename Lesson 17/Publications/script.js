@@ -23,16 +23,13 @@ var Publications =
 
 	buildPage()
 	{
-		var count = -1;
-		var str = '';
-		const result = this.Data.posts.reduce((str,e)=>
+		const result = this.Data.posts.map((e, index) =>
 		{
-			count++;
-			return str += 
-			`<div data-n="${count}" class="post">
-			${Publications.buildPublication(e)}
-			</div>`;
-		},'');
+		 	return `<div data-n="${index}" class="post">
+		 	${Publications.buildPublication(e)}
+		 	</div>`;
+		}).join('');
+
 		Publications.Dom.container.innerHTML += result;
 		this.EventHandlers.clickButtons();
 		this.EventHandlers.focusArea();
@@ -51,7 +48,7 @@ var Publications =
 			</div>
 			<div class="buttons">
 				<input type="button" class="butcom"/><div class="countcom">${data.comments.length}</div>
-				<input type="button" class="butlik"/><div class="countlik">${data.likes}</div>
+				<input type="button" class="butlik"/><div class="countlik" data-likes="${data.likes}">${data.likes}</div>
 			</div>
 		</div>
 		<div class="allcom">
@@ -85,7 +82,7 @@ var Publications =
 			</div>
 
 			<div class="buttonscomm">
-				<input type="button" class="butlik"/><div class="countlik">${e.likes}</div>
+				<input type="button" class="butlik"/><div class="countlik" data-likes="${e.likes}">${e.likes}</div>
 			</div>				
 		</div>`;
 	},
@@ -123,20 +120,25 @@ var Publications =
 
 		liked(e)
 		{
-			if(e.classList.value.includes('butlik'))
+			if(e.classList.contains('butlik'))
 			{
 				e.classList.toggle('active');
+				const next = e.nextSibling;
+				let countLikes = next.getAttribute('data-likes')*1;
 
 				if(e.getAttribute('data-like') == 'true')
 				{
-					e.nextSibling.innerHTML--;
+					next.innerHTML = --countLikes;
+					next.setAttribute('data-likes', `${countLikes}`);
 					e.removeAttribute('data-like');
+
 					return;
 				}
 
 				if(e.getAttribute('data-like') == null)
 				{
-					e.nextSibling.innerHTML++;
+					next.innerHTML = ++countLikes;
+					next.setAttribute('data-likes', `${countLikes}`);
 					e.setAttribute('data-like', 'true');
 					return;
 				}
@@ -145,7 +147,7 @@ var Publications =
 
 		sendMessage(e, x)
 		{
-			if(e.classList.value =='send')
+			if(e.classList.contains('send'))
 			{
 				var mes = e.previousSibling.value;
 				const user = new Comments("User", "image/avatar/User.jpg", mes, 0);
