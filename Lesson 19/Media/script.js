@@ -1,15 +1,26 @@
 const audio = document.querySelector('audio');
 const video = document.querySelector('video');
 
-video.addEventListener('loadedmetadata', function()
+async function loadStorage()
 {
-	video.currentTime = localStorage.getItem('video') * 1;
-});
+	const audTime = await localStorage.getItem('audio') * 1;
+	audio.currentTime = audTime;
+	const vidTime = await localStorage.getItem('video') * 1;
+	video.currentTime = vidTime;
+}
+loadStorage();
 
-audio.addEventListener('loadedmetadata', function()
+document.addEventListener('mousemove', function()
 {
-	audio.currentTime = localStorage.getItem('audio') * 1;
-});	
+	if(localStorage.getItem('audioPlay') == 'true')
+	{
+		audio.play()
+	};
+	if(localStorage.getItem('videoPlay') == 'true')
+	{
+		video.play()
+	};
+})
 
 audio.addEventListener('timeupdate', function()
 {
@@ -22,52 +33,49 @@ video.addEventListener('timeupdate', function()
 });
 
 
-var vid = false;
-var aud = false;
-
 video.addEventListener('play', function()
 {
-	vid = true;
+	localStorage.setItem('videoPlay', true);
 });
 
 video.addEventListener('pause', function()
 {
-	vid = false;
+	localStorage.setItem('videoPlay', false);
 });
 
 audio.addEventListener('play', function()
 {
-	aud = true;
+	localStorage.setItem('audioPlay', true);
 });
 
 audio.addEventListener('pause', function()
 {
-	aud = false;
+	localStorage.setItem('audioPlay', false);
 });
 
 document.addEventListener('visibilitychange', function()
 {
 	if(document.hidden)
 	{
-		if(vid)
+		if(localStorage.getItem('videoPlay') == 'true')
 		{
 			video.pause();
-			setTimeout(() => {vid = true}, 200);
+			setTimeout(() => {localStorage.setItem('videoPlay', true)}, 200);
 
 		}
-		if(aud)
+		if(localStorage.getItem('audioPlay') == 'true')
 		{
 			audio.pause();
-			setTimeout(() => {aud = true}, 200);
+			setTimeout(() => {localStorage.setItem('audioPlay', true)}, 200);
 		}
 	}
 	else
 	{
-		if(vid)
+		if(localStorage.getItem('videoPlay') == 'true')
 		{
 			video.play();
 		}
-		if(aud)
+		if(localStorage.getItem('audioPlay') == 'true')
 		{
 			audio.play();
 		}
