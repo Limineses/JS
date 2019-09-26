@@ -1,0 +1,56 @@
+body
+{
+	margin: 0;
+	padding: 0;
+	background: aquamarine;
+}
+img
+{
+	height: 450px;
+	width: 100%;
+}
+.slider
+{
+	position: absolute;
+	left: 5%;
+	top: 100px;
+	width: 90%;
+}
+input
+{
+	outline: none;
+	height: 40px;
+	width: 210px;
+	margin: 5px 10px 0 10px;
+	font-size: 20px;
+	border: 0px;
+	font-family: Verdana;
+	background-color: #F377E3;
+}
+#accord
+{
+	position: fixed;
+	margin: 0 0 0 10px;
+	padding: 5px;
+	width: 200px;
+	background: #FDA6FE;
+	display: none;
+	z-index: 2;
+}
+ul
+{
+	margin: 0;
+	padding: 0;
+}
+.acc
+{
+	margin-bottom: 5px;
+	list-style: none;
+	font-size: 19px;
+	background: #F77CF8;
+	text-align: center;
+}
+span
+{
+	display: none;
+}
