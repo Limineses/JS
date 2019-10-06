@@ -1,26 +1,33 @@
 const audio = document.querySelector('audio');
 const video = document.querySelector('video');
 
-async function loadStorage()
-{
-	const audTime = await localStorage.getItem('audio') * 1;
-	audio.currentTime = audTime;
-	const vidTime = await localStorage.getItem('video') * 1;
-	video.currentTime = vidTime;
-}
-loadStorage();
+const loadPage = new Promise ((res, rej) => {
+	const data = [localStorage.getItem('audio') * 1, localStorage.getItem('video') * 1];
+	res(data);
+	rej(err);
+	
+});
+loadPage.then((data) => {
+	audio.currentTime = data[0];
+	video.currentTime = data[1];
+}, (err) => {
+	console.log(err);
+});
 
-document.addEventListener('mousemove', function()
+window.addEventListener('load', function()
 {
-	if(localStorage.getItem('audioPlay') == 'true')
-	{
-		audio.play()
-	};
-	if(localStorage.getItem('videoPlay') == 'true')
-	{
-		video.play()
-	};
-})
+	setTimeout(() => {
+		if(localStorage.getItem('audioPaused') == 'false')
+		{	
+			audio.play();
+		};
+
+		if(localStorage.getItem('videoPaused') == 'false')
+		{
+			video.play();
+		};
+	}, 100)
+});
 
 audio.addEventListener('timeupdate', function()
 {
@@ -32,52 +39,34 @@ video.addEventListener('timeupdate', function()
 	localStorage.setItem('video', video.currentTime);
 });
 
-
-video.addEventListener('play', function()
-{
-	localStorage.setItem('videoPlay', true);
-});
-
-video.addEventListener('pause', function()
-{
-	localStorage.setItem('videoPlay', false);
-});
-
-audio.addEventListener('play', function()
-{
-	localStorage.setItem('audioPlay', true);
-});
-
-audio.addEventListener('pause', function()
-{
-	localStorage.setItem('audioPlay', false);
-});
-
 document.addEventListener('visibilitychange', function()
 {
 	if(document.hidden)
 	{
-		if(localStorage.getItem('videoPlay') == 'true')
+		if(!video.paused)
 		{
 			video.pause();
-			setTimeout(() => {localStorage.setItem('videoPlay', true)}, 200);
+			localStorage.setItem('videoPaused', false);
 
 		}
-		if(localStorage.getItem('audioPlay') == 'true')
+		if(!audio.paused)
 		{
 			audio.pause();
-			setTimeout(() => {localStorage.setItem('audioPlay', true)}, 200);
+			localStorage.setItem('audioPaused', false);
 		}
 	}
 	else
 	{
-		if(localStorage.getItem('videoPlay') == 'true')
+		if(localStorage.getItem('videoPaused') == 'false')
 		{
 			video.play();
+			localStorage.setItem('videoPaused', '');
+
 		}
-		if(localStorage.getItem('audioPlay') == 'true')
+		if(localStorage.getItem('audioPaused') == 'false')
 		{
 			audio.play();
+			localStorage.setItem('audioPaused', '');
 		}
 	}
 });
