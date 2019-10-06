@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>API</title>
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+	<script src="jquery.js"></script>
+	<script src="https://api-maps.yandex.ru/2.1/?apikey=c8eeb226-4a59-4e33-a679-a608d9d5dc82
+	&lang=ru_RU" type="text/javascript">
+	</script>
+</head>
+
+<body>
+	<div class="main-container">
+		<nav class="nav-main">
+			<button class="button-log"></button>
+			<button class="button-exit"></button>
+			<span class="username"></span>
+		</nav>
+		
+		<div id="map"></div>
+		
+		<div class="infoWindow-wrapper">
+			<div class="infoWindow">
+				<input type="number" class="cord1" step="0.000001">
+				<input type="number" class="cord2" step="0.000001">
+				<textarea name="" class="name" cols="30" rows="2"></textarea>
+				<textarea name="" class="description" cols="30" rows="10"></textarea>
+				<div class="infoWindow-buttons-wrapper">
+					<button class="infoWindow-accept">Принять</button>
+					<button class="infoWindow-exit">Выход</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-container-wrapper">
+			<div class="form-container">
+				<nav class="nav-form">
+					<button class="button-singin">SING IN</button>
+					<button class="button-registration">REGISTRATION</button>
+				</nav>
+				<form class="form-registration">
+					<p>Email:</p>
+					<input type="email" class="formFields" id="email">
+					<p>Password:</p>
+					<input type="password" class="formFields" id="password">
+					<input type="submit" id="submitRegistration" class="submitButtons" value="REGISTRATION">
+					<input type="submit" id="submitSingin" class="submitButtons" value="SIGN IN">
+				</form>
+			</div>
+		</div>
+
+	</div>
+	<script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-database.js"></script>
+	<script>
+    var firebaseConfig = {
+		apiKey: "AIzaSyCUPLbxP_EDfdOijY2nu3MGnYHLNnMjlGw",
+		authDomain: "apis-d0275.firebaseapp.com",
+		databaseURL: "https://apis-d0275.firebaseio.com",
+		projectId: "apis-d0275",
+		storageBucket: "",
+		messagingSenderId: "735797313417",
+		appId: "1:735797313417:web:efb8758f6e909bd861ab58"
+	};
+    firebase.initializeApp(firebaseConfig);
+  	</script>
+	<script src="script.js"></script>
+</body>
+</html>
