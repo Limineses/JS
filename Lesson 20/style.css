@@ -70,12 +70,6 @@
 						border: none;
 						width: 50%;
 						outline: none;
-					}
-					.button-singin{
-						background: #555555;
-						font-size: 20px;
-					}
-					.button-registration{
 						background: #8D8D8D;
 						font-size: 15px;
 					}
@@ -115,6 +109,7 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);	
+	display: none;
 }
 .infoWindow{
 
@@ -125,8 +120,13 @@
 	border-radius: 10px;
 	flex-direction: column;
 	justify-content: space-between;
-	display: none;
+	display: flex;
 }
+	.infoWindow > *{
+		outline: none;
+		box-shadow: none;
+		border: none;
+	}
 	.infoWindow>textarea{
 		resize: none;
 		overflow: auto;
@@ -164,4 +164,8 @@
 }
 .change:hover{
 	opacity: 0.5;
+}
+.active{
+	font-size: 20px;
+	background-color: #555555;
 }
