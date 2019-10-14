@@ -24,106 +24,95 @@ var App = {
 	,EventHandlers: {
 		
 		init(){
-			this.pointsWindow();
-			this.inputWindow();
-			this.swapSingAndRegistration();
-			this.sendDataOnSing();
+			document.addEventListener('click', this.pointsWindow);
+			$('.button-log').click(this.inputWindow);
+			$('.button-exit').click(this.exit);
+			$('.button-registration').click(this.buttonRegistration);
+			$('.button-singin').click(this.buttonSingin);
+			$('#submitSingin').click(this.sendDataOnSing);
+			$('#submitRegistration').click(this.sendDataOnregistration);
 		},
 
-		pointsWindow(){
-			document.addEventListener('click', function(e)
+		pointsWindow(e){
+			const n = e.target.getAttribute('data-n');
+			if(e.target.classList.contains('change'))
 			{
 				const n = e.target.getAttribute('data-n');
-				if(e.target.classList.contains('change'))
+				$('.infoWindow-wrapper').show(200);
+				firebase.database().ref(`/${n}`).on('value', res =>
 				{
-					const n = e.target.getAttribute('data-n');
-					$('.infoWindow-wrapper').show(200);
-					firebase.database().ref(`/${n}`).on('value', res =>
-					{
-					    $('.cord1').val(res.val().cord1);
-					    $('.cord2').val(res.val().cord2);
-					    $('.name').val(res.val().name);
-					    $('.description').val(res.val().description);
-					})
-				}
-				if(e.target.classList.contains('infoWindow-accept'))
-				{
-					firebase.database().ref(`/${n*1}`).update({
-					    cord1: $('.cord1').val(),
-					    cord2: $('.cord2').val(),
-					    description: $('.description').val(),
-					    name: $('.name').val()
-				  	});
-					location.reload();
-				}
-				if(e.target.classList.contains('infoWindow-exit'))
-				{
-					$('.infoWindow-wrapper').hide(200);
-				}
+				    $('.cord1').val(res.val().cord1);
+				    $('.cord2').val(res.val().cord2);
+				    $('.name').val(res.val().name);
+				    $('.description').val(res.val().description);
+				})
+			}
+			if(e.target.classList.contains('infoWindow-accept'))
+			{
+				firebase.database().ref(`/${n*1}`).update({
+				    cord1: $('.cord1').val(),
+				    cord2: $('.cord2').val(),
+				    description: $('.description').val(),
+				    name: $('.name').val()
+			  	});
+				location.reload();
+			}
+			if(e.target.classList.contains('infoWindow-exit'))
+			{
+				$('.infoWindow-wrapper').hide(200);
+			}
+		},
+
+		inputWindow(e) {
+			if($('.form-container-wrapper').css('display') == 'none')
+			{
+				$('.form-container-wrapper').css('display', 'flex');
+			}
+			else
+			{
+				$('.form-container-wrapper').css('display', 'none');
+			}
+		},
+
+		exit(e) {
+			firebase.auth().signOut();
+			location.reload()
+		},
+
+		buttonRegistration() {
+			$('.button-singin').removeClass('active');
+			$('.button-registration').addClass('active');
+
+			$('#submitSingin').css('display', 'none');
+			$('#submitRegistration').css('display', 'block');
+		},
+
+		buttonSingin() {
+			$('.button-registration').removeClass('active');
+			$('.button-singin').addClass('active');
+
+			$('#submitSingin').css('display', 'block');
+			$('#submitRegistration').css('display', 'none');
+		},
+
+		sendDataOnSing(e) {
+			e.preventDefault();
+			const [$pass, $email] = [$('#password'), $('#email')]
+			const user = firebase.auth().signInWithEmailAndPassword($email.val(), $pass.val());
+			user.then(()=> location.reload());
+			user.catch(function(error) {
+				alert(error.message)
 			});			
 		},
 
-		inputWindow(){
-			$('.button-log').click(function(e)
-			{
-				if($('.form-container-wrapper').css('display') == 'none')
-				{
-					$('.form-container-wrapper').css('display', 'flex');
-				}
-				else
-				{
-					$('.form-container-wrapper').css('display', 'none');
-				}
-			});			
-			$('.button-exit').click(function()
-			{
-				firebase.auth().signOut();
-				location.reload()
-			});
-		},
-
-		swapSingAndRegistration(){
-			$('.button-registration').click(function()
-			{
-				$('.button-singin').removeClass('active');
-				$('.button-registration').addClass('active');
-
-				$('#submitSingin').css('display', 'none');
-				$('#submitRegistration').css('display', 'block');
-			});
-
-			$('.button-singin').click(function()
-			{
-				$('.button-registration').removeClass('active');
-				$('.button-singin').addClass('active');
-
-				$('#submitSingin').css('display', 'block');
-				$('#submitRegistration').css('display', 'none');
-			});			
-		},
-
-		sendDataOnSing(){
-			$('#submitRegistration').click(function(e)
-			{
-				e.preventDefault();
-				const [$pass, $email] = [$('#password'), $('#email')]
-				const user = firebase.auth().createUserWithEmailAndPassword($email.val(), $pass.val());
-				user.then(()=> location.reload());
-				user.catch(function(error) {
-					alert(error.message)
-				});	
-			})
-
-			$('#submitSingin').click(function(e)
-			{
-				e.preventDefault();
-				const [$pass, $email] = [$('#password'), $('#email')]
-				const user = firebase.auth().signInWithEmailAndPassword($email.val(), $pass.val());
-				user.then(()=> location.reload());
-				user.catch(function(error) {
-					alert(error.message)
-				});	
-			})			
+		sendDataOnregistration(e) {
+			e.preventDefault();
+			const [$pass, $email] = [$('#password'), $('#email')]
+			const user = firebase.auth().createUserWithEmailAndPassword($email.val(), $pass.val());
+			user.then(()=> location.reload());
+			user.catch(function(error) {
+				alert(error.message)
+			});				
 		}
 	},
 
