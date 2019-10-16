@@ -1,0 +1,201 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+}
+body {
+	background: #E6E6E6;
+}
+#app {
+}
+	nav {
+		padding: 5px;
+		position: fixed;
+		background: #E6E6E6;
+		width: 100%;
+		background: white;
+	}
+		.nav_lvl_one {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+		}
+		hr {
+			width: 90%;
+			margin: 5px 5%;
+
+		}
+			.nav_lvl_one > button {
+				height: 50px;
+				width: 50px;
+				border-radius: 50px;
+				outline: none;
+				border: none;
+				padding: 3px;
+				margin: 3px;
+				background: url('https://img.icons8.com/ios/35/000000/shopping-cart.png') center center no-repeat white;
+			}
+			.nav_lvl_one > button:hover {
+				box-shadow: 0 0 3px black;
+			}
+			.nav_lvl_one_categories {
+				width: 100%;
+				display: flex;
+				justify-content: space-around;
+			}
+				.nav_lvl_one_categories > button{
+					outline: none;
+					border: none;
+					padding: 3px 15px;
+					margin: 3px;
+					background: white;
+				}
+				.nav_lvl_one_categories > button:hover {
+					box-shadow: 0 0 3px black;
+				}
+		.nav_lvl_two {
+			padding-left: 50px;
+		}
+		.nav_lvl_two > span {
+			margin-left: 20px;
+		}
+		.nav_lvl_two > button {
+			background: white;
+			outline: none;
+			border: none;
+			width: 25px;
+			height: 25px;
+			border-radius: 50px;
+		}
+		.nav_lvl_two > button:hover {
+			box-shadow: 0 0 3px black;
+		}
+	.main-container_wrapper {
+		padding-top: 100px;
+	}
+	.main-container {
+		display: flex;
+		flex-wrap: wrap;
+	}
+		.items {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+			padding: 10px;
+			background: white;
+			flex-basis: 31%;
+			margin: 1%;
+		}
+		.items:hover {
+			box-shadow: 0 0 5px black;
+		}
+			.items > img {
+				width: 200px;
+				margin: 50px;
+			}
+			.items > p {
+				font-size: 12px;
+			}
+			.items > h2 {
+				font-size: 18px;
+				margin: 5px;
+			}
+				.items_add {
+					outline: none;
+					border: none;
+					border-radius: 50px;
+					height: 50px;
+					width: 50px;
+					background: url('https://img.icons8.com/ios/35/000000/add-shopping-cart.png') center center no-repeat;
+				}
+				.items_add:hover {
+					box-shadow: 0 0 3px black;
+				}
+				.items_add:active {
+					box-shadow: none;
+				}
+	.cart {
+		height: 90%;
+		width: 90%;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		padding: 50px;
+		background: #D1D0D0;
+	}
+		.cart_sum {
+			position: absolute;
+			top: 2%;
+			left: 50%;
+			transform: translate(-50%, 0);
+			font-size: 30px;
+		}
+		.cart_items_wrapper {
+			overflow: auto;
+			display: flex;
+			flex-wrap: wrap;
+		}
+			.cart_items {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				align-items: center;
+				padding: 10px;
+				background: white;
+				flex-basis: 31%;
+				margin: 1%;
+			}
+			.cart_items > img {
+				width: 200px;
+				margin: 50px;
+			}
+			.cart_items > p {
+				font-size: 12px;
+			}
+			.cart_items > h2 {
+				font-size: 18px;
+				margin: 5px;
+			}
+			.cart_items_count {
+				margin: 30px;
+			}
+			.cart_items_count_buttons {
+				outline: none;
+				border: none;
+				height: 25px;
+				width: 25px;
+				border-radius: 50px;
+			}
+			.cart_items_count_buttons:hover {
+				box-shadow: 0 0 3px black;
+			}
+			.cart_items_delete {
+				padding: 7px;
+				outline: none;
+				border: none;
+				border-radius: 5px;
+			}
+			.cart_items_delete:hover {
+				box-shadow: 0 0 3px black;
+			}
+	footer {
+		margin: 5px;
+		display: flex;
+		justify-content: center;
+	}
+		.pages > button {
+			outline: none;
+			border: none;
+			height: 40px;
+			width: 40px;
+			margin: 5px;
+			border-radius: 50px;
+			background: white;
+			font-size: 18px;
+		}		
+.active {
+	font-weight: 900;
+}

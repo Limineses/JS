@@ -1,0 +1,74 @@
+[
+	{
+		"name": "Телевизор Toshiba 32S2855EC",
+		"category": "TV",
+		"image" : "images/TVtoshiba.jpeg",
+		"description": "Диагональ 32'' (81 см)Разрешение 1366x768 (HD)Технология экрана LCDЧастота обновления 60 Гц Smart TV нетКоличество HDMI 2Толщина панели 77 мм",
+		"price": 412
+	},{
+		"name": "Телевизор Horizont 32LE7912D ",
+		"category": "TV",
+		"image" : "images/TVhorizont.png",
+		"description": "Диагональ 32'' (81 см)Разрешение 1366x768 (HD)Частота обновления 60 ГцРасширенный динамический диапазон (HDR) естьSmart TV естьБеспроводные интерфейсы Wi-FiКоличество HDMI 3",
+		"price": 389 
+	},{
+		"name": "Телевизор Xiaomi MI TV 4A Pro 43",
+		"category": "TV",
+		"image" : "images/TVxiaomi.png",
+		"description": "Диагональ42.5 (108 см)Разрешение 1920x1080 (Full HD)Технология экрана LEDЧастота обновления 60 ГцРасширенный динамический диапазон (HDR) нетSmart TV естьБеспроводные интерфейсы Bluetooth, Wi-Fi, Wi-Fi DirectКоличество HDMI 3Толщина панели 86 мм",
+		"price": 699
+	},{
+		"name": "Ноутбук Asus VivoBook X540NV-DM037",
+		"category": "laptop",
+		"image" : "images/Laptop Asus.jpeg",
+		"description": "Операционная система EndlessДиагональ экрана 15.6 ''Разрешение экрана 1920x1080 (FullHD)Сенсорный экран нет Модель процессора Intel Celeron N3450Объём оперативной памяти 4 ГБЕмкость HDD 500 ГбТип видеокарты дискретнаяМодель видеокарты NVIDIA GeForce 920MXCD/DVD привод (дисковод) нет",
+		"price": 701
+	},{
+		"name": "Ноутбук HP 15-rb029ur (4US50EA)",
+		"category": "laptop",
+		"image" : "images/Laptop HP.jpeg",
+		"description": "Операционная система DOS Диагональ экрана 15.6 ''Разрешение экрана 1366x768 (HD)Сенсорный экран нетМодель процессора AMD A4-9120Объём оперативной памяти 4 ГБЕмкость HDD 500 ГбТип видеокарты встроеннаяМодель видеокарты AMD Radeon R3CD/DVD привод (дисковод) есть",
+		"price": 562
+	},{
+		"name": "Ноутбук Dell Inspiron 15 (3576-1466)",
+		"category": "laptop",
+		"image" : "images/Laptop Dell.jpeg",
+		"description": "Операционная система LinuxДиагональ экрана 15.6 ''Разрешение экрана 1920x1080 (FullHD)Сенсорный экран нетМодель процессора Intel Core i5-8250UОбъём оперативной памяти 8 ГБЕмкость HDD 1000 ГбТип видеокарты дискретнаяМодель видеокарты AMD Radeon 520CD/DVD привод (дисковод) есть",
+		"price": 1269
+	},{
+		"name": "Масляный радиатор Ballu BOH/CM-11WDN",
+		"category": "heater",
+		"image" : "images/heater Ballu.jpeg",
+		"description": "Рекомендуемая  площадь обогрева 27 м2. Потребляемая мощность 2200 Вт. Мощность обогрева 2200 Вт. Термостат есть. Регулировка температуры есть. Регулировка мощности есть",
+		"price": 123
+	},{
+		"name": "Конвектор Oasis LK-10D",
+		"category": "heater",
+		"image" : "images/heater Oasis.jpeg",
+		"description": "Рекомендуемая площадь обогрева 20 м2. Мощность обогрева 1000 Вт. Термостат есть. Регулировка температуры есть. Регулировка мощности есть",
+		"price": 75
+	},{
+		"name": "Инфракрасный обогреватель Timberk TCH Q1 800",
+		"category": "heater",
+		"image" : "images/heater Timberk.jpeg",
+		"description": "Рекомендуемая площадь обогрева 12 м2. Мощность обогрева 800 Вт. Регулировка мощности есть",
+		"price": 32
+	},{
+		"name": "Наушники-гарнитура Xiaomi Redmi AirDots ZBW4480GL / TWSEJ04LS",
+		"category": "headphones",
+		"image" : "images/headphones Xiaomi.jpeg",
+		"description": "Акустическое оформление закрытое. Беспроводная связь. Bluetooth (5.0)Верх. граница диапазона 20000 Гц. Ниж. граница диапазона 20 Гц. Шумоподавление есть (интеллектуальное шумоподавление DSP)",
+		"price": 79
+	},{
+		"name": "Наушники-гарнитура JBL T110BT",
+		"category": "headphones",
+		"image" : "images/headphones JBL.jpeg",
+		"description": "Тип подключения USB (для зарядки). Беспроводная связь. Bluetooth (4.0). Верх. граница диапазона 20000 Гц. Ниж. граница диапазона 20 Гц. Соотношение сигнал/шум 96 дБ. Регулятор громкости есть",
+		"price": 49
+	},{
+		"name": "Наушники-гарнитура Sony WH-CH400 / WHCH400B.E",
+		"category": "headphones",
+		"image" : "images/headphones Sony.jpeg",
+		"description": "Тип подключения USB (для зарядки). Беспроводная связь. Bluetooth (4.2), NFCДлина кабеля/радиус действия 10м. Складная конструкция нет.Верх. граница диапазона 20000 Гц. Ниж. граница диапазона 20Гц. Регулятор громкости есть",
+		"price": 57
+	}]
