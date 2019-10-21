@@ -13,34 +13,27 @@ const vm = new Vue({
 	},
 
 	computed: {
-		getFilterItems() {
+		filterItems() {
 			if(this.category){
 				return [...this.items].filter((e)=> e.category.toUpperCase() == this.category.toUpperCase())
 			} 
 			else {
 				return this.items;
 			}
-
-		},
-		getItemsOnPage() {
-			let arr = this.getFilterItems.filter((e, index) => index + 1 <= this.countItems * this.page && index + 1 >(this.page * this.countItems) - this.countItems)
-			switch(this.sumSort)
-			{
-				case 'up':
-					return arr.sort((a, b)=> {return b.price - a.price});
-					break;
-				case 'down':
-					return arr.sort((a, b)=> {return a.price - b.price});
-					break;
-				default	:
-					return arr;
-			}
 		},
 
-		getPages() {
-			let arr = [...this.pages];
-			for(let i = 1; i <= Math.ceil(this.getFilterItems.length / this.countItems); i++){
-				if(this.getFilterItems.length / this.countItems > 1)
+		itemsOnPage() {
+			const x = this.countItems * this.page;
+			const y = (this.page * this.countItems) - this.countItems;
+			const arr = this.filterItems.filter((e, index) => index + 1 <= x && index + 1 > y)
+			return arr.sort((a, b)=> {return (-this.sumSort) * a.price - (-this.sumSort) * b.price});
+		},
+
+		pagesCount() {
+			const countPages = Math.ceil(this.filterItems.length / this.countItems);
+			const arr = [...this.pages];
+			for(let i = 1; i <= countPages; i++){
+				if(countPages > 1)
 				{
 					arr.push(i);
 				}
@@ -48,65 +41,43 @@ const vm = new Vue({
 			return arr;
 		},
 
-		getCartSum() {
+		cartSum() {
 			return this.cart.reduce((sum, n) => {
-				return sum += (n.price * 1) * (n.count * 1);
+				return sum += n.price * n.count;
 			}, 0)
+		},
+
+		cartItems() {
+			return this.cart.filter(e => e.count > 0)
 		}
 	},
 
 	methods: {
-		changeCategory(name) {
-			this.category = name;
-		},
-		getItemsByPage(n) {
-			this.page = n;
-		},
-		changeSumSort(name) {
-			this.sumSort = name;
-		},
 		changeShowCart() {
 			this.showCart = !this.showCart;
 		},
-		addToCart(n) {
-			const item = {
-				name: n.name,
-				image: n.image,
-				description: n.description,
-				price: n.price,
-				count: 1
-			}
-			if(!this.cart.some(e => { return e.name == item.name})) {
-				this.cart.push(item);
-				return;
-			}
 
-			this.cart.forEach(e => {
-				if(e.name == item.name) {
-					e.count ++;
-				}
-			})
+		addToCart(n) {
+			const item = {...n,	count: 1}
+			const haveItem = this.cart.find(cartItem => cartItem.name === item.name);
+			if(haveItem === undefined) { 
+				return this.cart.push(item);
+			}
+			return haveItem.count ++;
 		},
+
 		addCartItem(item) {
-			this.cart.forEach(e => {
-				if(e.name == item.name) {
-					e.count ++;
-				}
-			})
+			const haveItem = this.cart.find(e => e.name == item.name);
+			return haveItem.count++;
 		},
+
 		removeCartItem(item) {
-			this.cart.forEach(e => {
-				if(e.name == item.name) {
-					e.count --;
-				}
-			})
+			const haveItem = this.cart.find(e => e.name == item.name);
+			return haveItem.count--;
 		},
+
 		deleteCartItem(item) {
-			this.cart.forEach((e, index) => {
-				if(e.name == item.name) {
-					this.cart.splice(index, 1);
-				}
-			})
+			this.cart = this.cart.filter(cartItem => cartItem.name !== item.name);
 		}
 	},
 
@@ -124,11 +95,14 @@ const vm = new Vue({
 		this.items.forEach(e => {
 			this.categoryButtons.add(e.category)
 		});
-		this.cart = JSON.parse(localStorage.getItem('catalog_cart'));
+		const cart = JSON.parse(localStorage.getItem('catalog_cart'));
+		if(cart) this.cart = cart;
+	},
+
+	mounted() {
+		window.addEventListener('unload', function()
+		{
+			localStorage.setItem('catalog_cart', JSON.stringify(vm.cart));
+		});		
 	}
 });
-
-window.addEventListener('unload', function()
-{
-	localStorage.setItem('catalog_cart', JSON.stringify(vm.cart));
-})

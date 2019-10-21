@@ -12,8 +12,8 @@
 		<nav>
 			<div class="nav_lvl_one">
 				<div class="nav_lvl_one_categories">
-					<button @click="changeCategory(null)" :class="{active:category == null}">ALL</button>
-					<button v-for="(n) in categoryButtons" @click="changeCategory(n)" :class="{active: n == category}">{{n.toUpperCase()}}</button>
+					<button @click="category = null" :class="{active:category == null}">ALL</button>
+					<button v-for="(n) in categoryButtons" @click="category = n" :class="{active: n == category, categoryBut: true}">{{n}}</button>
 				</div>
 				<button @click="changeShowCart"></button>
 			</div>
@@ -22,17 +22,17 @@
 				<span>Count:</span>			
 				<input type="range" min="9" max="27" step="9" v-model="countItems">
 				<span>Price:</span>
-				<button @click="changeSumSort('up')">
+				<button @click="sumSort = 1">
 					<img src="https://img.icons8.com/material/20/000000/long-arrow-up--v2.png">
 				</button>
-				<button @click="changeSumSort('down')">
+				<button @click="sumSort = -1">
 					<img src="https://img.icons8.com/material/20/000000/long-arrow-down--v1.png">
 				</button>	
 			</div>
 		</nav>
 		<div class="main-container_wrapper">
 			<div class="main-container">
-				<div v-for="(n, index) in getItemsOnPage" :key="index" class="items">
+				<div v-for="(n, index) in itemsOnPage" :key="index" class="items">
 					<h2> {{n.name}} </h2>
 					<p> {{n.description}} </p>
 					<img :src="n.image" alt="">
@@ -43,9 +43,9 @@
 			</div>
 		</div>
 		<div class="cart" v-if="showCart">
-			<span class="cart_sum"><b>{{ getCartSum }}$</b></span>
+			<span class="cart_sum"><b>{{ cartSum }}$</b></span>
 			<div class="cart_items_wrapper">
-				<div v-for="(n, index) in cart" :key="index" class="cart_items" v-if="n.count > 0">
+				<div v-for="(n, index) in cartItems" :key="index" class="cart_items">
 					<h2> {{n.name}} </h2>
 					<p> {{n.description}} </p>
 					<img :src="n.image" alt="">
@@ -55,13 +55,13 @@
 						<span>Count: <b>{{ n.count }}</b></span>
 						<button @click="addCartItem(n)" class="cart_items_count_buttons">+</button>
 					</div>
-					<button @click="deleteCartItem(n)" class="cart_items_delete">Delete</button>				
+					<button @click="deleteCartItem(n)" class="cart_items_delete">Delete</button>		
 				</div>
 			</div>
 		</div>
 		<footer>
 			<div class="pages">
-				<button v-for="n in getPages" @click="getItemsByPage(n)" :class="{active: n == page}"> {{n}} </button>
+				<button v-for="n in pagesCount" @click="page = n" :class="{active: n == page}"> {{n}} </button>
 			</div>			
 		</footer>
 	</div>
