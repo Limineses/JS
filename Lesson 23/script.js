@@ -58,22 +58,28 @@ const vm = new Vue({
 		},
 
 		addToCart(n) {
-			const item = {...n,	count: 1}
+			const item = {
+				name: n.name,
+				image: n.image,
+				description: n.description,
+				price: n.price,	
+				count: 1
+			}
 			const haveItem = this.cart.find(cartItem => cartItem.name === item.name);
 			if(haveItem === undefined) { 
 				return this.cart.push(item);
 			}
-			return haveItem.count ++;
+			haveItem.count ++;
 		},
 
 		addCartItem(item) {
 			const haveItem = this.cart.find(e => e.name == item.name);
-			return haveItem.count++;
+			haveItem.count++;
 		},
 
 		removeCartItem(item) {
 			const haveItem = this.cart.find(e => e.name == item.name);
-			return haveItem.count--;
+			haveItem.count--;
 		},
 
 		deleteCartItem(item) {
