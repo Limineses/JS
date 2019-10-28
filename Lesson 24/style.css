@@ -1,0 +1,119 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+}
+#app > div {
+	display: flex;
+	}
+	nav {
+		float: left;
+		width: 15%;
+		height: 98vh;
+		background: #ABC8FD;
+		margin: 1vh 0 1vh 10%;
+	}
+		.nav-buttons-wrapper {
+			height: 100%;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			padding: 10px;
+		}
+			.nav-buttons-wrapper > span {
+				padding: 5px;
+				margin: 5px;
+				font-size: 18px;
+			}
+			.nav-buttons-wrapper > span:hover {
+				background: #78A7FF;
+				cursor: pointer;
+			}
+	section {
+		padding: 20px;
+		width: 65%;
+		height: 98vh;
+		background: #ABC8FD;
+		margin: 1vh 0 1vh 5px;
+		overflow: auto;
+	}
+		.publications {
+			background: #78A7FF;
+			margin: 10px 0;
+		}
+			.publications_author {
+				display: flex;
+				align-items: center;
+			}
+				.publications_author a {
+					text-decoration: none;
+					color: black;
+					font-weight: 500;
+				}
+				.publications_author > img {
+					margin: 5px;
+					border-radius: 50px;
+				}
+			.publications_content img {
+				width: 100%;
+			}	
+			.publications_comments {
+				padding: 1px;
+				display: none;
+			}
+			.open {
+				display: block!important;
+			}
+			.close{
+				display: none!important;
+			}
+			.comments-button {
+				margin: 5px 5px 7px 95%;
+				border-radius: 50px;
+				border: none;
+				outline: none;
+				height: 25px;
+				width: 25px;
+			}
+			.comments-button:hover {
+				box-shadow: 0 0 3px black;
+			}
+				.comment {
+					background: #ABC8FD;
+					margin: 5px;
+				}
+
+			.dialogs-all {
+				width: 100%;
+				height: 50px;
+				margin: 5px;
+				padding: 5px;
+				font-size: 20px;
+				background: #78A7FF;
+			}
+			.dialogs-all:hover {
+				opacity: 0.5;
+				cursor: pointer;
+			}
+			.dial-wrapper {
+				width: 100%;
+			}
+			.return {
+				margin-bottom: 30px;
+				border-radius: 50px;
+				border: none;
+				width: 35px;
+				height: 35px;
+				background: url('https://img.icons8.com/ios-glyphs/30/000000/arrow-pointing-left--v2.png') center center no-repeat #78A7FF;
+			}
+			.return:hover {
+				opacity: 0.5;
+				cursor: pointer;
+			}
+			.dial-wrapper > div {
+				font-size: 20px;
+			}
+			.dial-wrapper > div:nth-child(even) {
+				margin:20px 100px; 100px;
+			}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Social</title>
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<template id="my-page">
+		<section>
+			<p>My Page</p>
+		</section>		
+	</template>
+
+	<template id="news">
+		<section>
+			<div class="publications" v-for="(n, index) in publications">
+				<div class="publications_author">
+					<img :src="n.author.image" alt="">
+					<p v-html="n.author.name"></p>
+				</div>
+				<div v-html="n.text" class="publications_content"></div>
+				<button @click="openComments(index)" class="comments-button">{{n.comments.length}}</button>
+				<div class="publications_comments" ref="com">
+					<div v-for="com in n.comments" class="comment">
+						<div class="publications_author">
+							<img :src="com.author.image" alt="">
+							<p v-html="com.author.name"></p>
+						</div>
+						<p>{{com.text}}</p>
+					</div>	
+				</div>
+			</div>
+		</section>		
+	</template>
+
+	<template id="dialogs">
+		<section>
+			<dilogs-list 
+				:messages="messages"
+				@show="$emit('show', $event)"
+				v-show="showDialog == null"
+			></dilogs-list>
+			<dial 
+				:show-dialog = "showDialog"
+				:messages="messages"
+				v-show="showDialog != null"
+				@close="$emit('close', $event)"
+			></dial>
+		</section>		
+	</template>
+
+	<template id="dilogs-list">
+		<div ref="list">
+			<div class="dialogs-all" v-for="(n, index) in messages" @click="show(index)">
+				{{n.dialog[n.dialog.length-1]}}
+			</div>
+		</div>
+	</template>
+
+	<template id="dial">
+		<section>
+			<div v-for="(n, index) in messages" class="dial">
+				<span  v-show="showDialog == index">
+					<button @click="close" class="return"></button>	
+					<div class="dial-wrapper">
+						<div v-for="m in n.dialog">
+							{{m}}
+						</div>						
+					</div>
+				</span>				
+			</div>
+		</section>
+	</template>
+
+	<template id="wrapper-app">
+		<div>
+			<nav>
+				<div class="nav-buttons-wrapper">
+					<span @click="showContent = 'my-page'">Моя страница</span>
+					<span @click="showContent = 'news'">Новости</span>
+					<span @click="showContent = 'dialogs'">Сообщения</span>
+				</div>
+			</nav>
+
+			<my-page 
+				v-show="showContent == 'my-page'"
+			></my-page>
+
+			<news 
+				v-show="showContent == 'news'"
+				:publications="publications"
+			></news>
+
+			<dialogs 
+				:show-dialog="showDialog"
+				v-show="showContent == 'dialogs'"
+ 				:messages="messages" 
+ 				@show="show"
+ 				@close="close"
+			>
+			</dialogs>	
+		</div>
+	</template>
+
+
+	<div id="app">
+		<wrapper-app></wrapper-app>
+	</div>
+
+	<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+[
+	{
+		"author" : 
+		{
+			"name" : "<a href='www.google.com'>Navinli</a>",
+			"image" : "image/avatar/Navinli.jpg"
+		},
+		"text" : "<figure><figcaption>Гуляю по парку</figcaption><img src='image/content/park.jpg'/></figure>",
+		"comments" :
+		[
+			{
+				"author":
+				{
+					"name" : "<a href='www.google.com'>Ailaushr</a>",
+					"image" : "image/avatar/Ailaushr.jpg"
+				},
+				"text" : "Прикольно"
+			},
+			{
+				"author":
+				{
+					"name" : "<a href='www.google.com'>Berin</a>",
+					"image" : "image/avatar/Berin.jpg"
+				},
+				"text" : "Надо будет там прогуляться"
+			},
+			{
+				"author":
+				{
+					"name" : "<a href='www.google.com'>Lolonengo</a>",
+					"image" : "image/avatar/Lolonengo.jpg"
+				},
+				"text" : "Красиво..."
+			}
+		]
+	},
+	{
+		"author" : 
+		{
+			"name" : "<a href='www.google.com'>Shailima</a>",
+			"image" : "image/avatar/Shailima.jpg"
+		},
+		"text" : "<figure><figcaption></figcaption><img src='image/content/museum.jpg'/></figure>",
+		"comments" :
+		[
+			{
+				"author":
+				{
+					"name" : "<a href='www.google.com'>Lolonengo</a>",
+					"image" : "image/avatar/Lolonengo.jpg"
+				},
+				"text" : "Скукота..."
+			},
+			{
+				"author":
+				{
+					"name" : "<a href='www.google.com'>Berin</a>",
+					"image" : "image/avatar/Berin.jpg"
+				},
+				"text" : "Что за музей?"
+			}
+		]
+	},
+	{
+		"author" : 
+		{
+			"name" : "<a href='www.google.com'>Berin</a>",
+			"image" : "image/avatar/Berin.jpg"
+		},
+		"text" : "<figure><figcaption>Ferrari 458</figcaption><img src='image/content/car.jpg'/></figure>",
+		"comments" :
+		[
+			{
+				"author":
+				{
+					"name" : "<a href='www.google.com'>Shailima</a>",
+					"image" : "image/avatar/Shailima.jpg"
+				},
+				"text" : "Твоя?"
+			},
+			{
+				"author":
+				{
+					"name" : "<a href='www.google.com'>Navinli</a>",
+					"image" : "image/avatar/Navinli.jpg"
+				},
+				"text" : "Сколько выжимает?"
+			},
+			{
+				"author":
+				{
+					"name" : "<a href='www.google.com'>Lolonengo</a>",
+					"image" : "image/avatar/Lolonengo.jpg"
+				},
+				"text" : "Хороша!"
+			}
+		]
+	},
+	{
+		"author" : 
+		{
+			"name" : "<a href='www.google.com'>Lolonengo</a>",
+			"image" : "image/avatar/Lolonengo.jpg"
+		},
+		"text" : "<video src='image/content/cat.mp4' controls width='100%'>",
+		"comments" :
+		[
+			{
+				"author":
+				{
+					"name" : "<a href='www.google.com'>Ailaushr</a>",
+					"image" : "image/avatar/Ailaushr.jpg"
+				},
+				"text" : "Ору"
+			},
+			{
+				"author":
+				{
+					"name" : "<a href='www.google.com'>Berin</a>",
+					"image" : "image/avatar/Berin.jpg"
+				},
+				"text" : "Забавно"
+			},
+			{
+				"author":
+				{
+					"name" : "<a href='www.google.com'>Shailima</a>",
+					"image" : "image/avatar/Shailima.jpg"
+				},
+				"text" : "Lol ;)"			
+			}
+		]
+	}
+]
