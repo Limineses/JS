@@ -2,37 +2,9 @@ Vue.component('wrapper-app', {
 	template: document.getElementById('wrapper-app'),
 	data() {
 		return {
-			showContent: 'my-page',
-			publications: [],
-			messages: [],
-			showDialog: null,		
+			showContent: 'my-page',		
 		}
 	},
-
-	methods: {
-		show(index) {
-			this.showDialog = index
-		},
-		close() {
-			this.showDialog = null
-		}
-	},
-
-	async created() {
-		function getAjax(path) {
-			const promise = new Promise((res, rej) => {
-				const xhr = new XMLHttpRequest();
-				xhr.open('GET', path, true);
-				xhr.onload = () => {
-					res(xhr.responseText)
-				}
-				xhr.send();
-			});
-			return promise;
-		}
-		getAjax('data.json').then(data => this.publications = JSON.parse(data));
-		getAjax('dialogs.json').then(data => this.messages = JSON.parse(data));
-	}
 })
 
 Vue.component('my-page', {
@@ -41,31 +13,60 @@ Vue.component('my-page', {
 
 Vue.component('news', {
 	template: document.getElementById('news'),
-	props: {
-		publications: {
-			type: Array,
-			default: () => [],
+	data() {
+		return {
+			publications: [],
 		}
 	},
 	methods: {
 		openComments(index) {
 			this.$refs.com[index].classList.toggle('open');
 		}
+	},
+	async created() {
+		const loadPromise = new Promise((resolve, reject) => {
+			const xhr = new XMLHttpRequest();
+			xhr.open('GET', 'data.json', true);
+			xhr.onload = function(){
+				const data = JSON.parse(xhr.responseText);
+				resolve(data);
+			};
+			xhr.send();			
+		});
+		this.publications = await loadPromise;
 	}
 })
 
 Vue.component('dialogs', {
 	template: document.getElementById('dialogs'),
-	props: {
-		messages: {
-			type: Array,
-			default: () => [],
-		},
-		showDialog : {
-			type: Number,
-			default: () => null,
+	data() {
+		return {
+			messages: [],
+			showDialog: null,
 		}
 	},
+	methods: {
+		show(index) {
+			// this.showDialog = index;
+			this.showDialog = index;
+		},
+		close() {
+			this.showDialog = null;
+		}
+	},
+
+	async created() {
+		const loadPromise = new Promise((resolve, reject) => {
+			const xhr = new XMLHttpRequest();
+			xhr.open('GET', 'dialogs.json', true);
+			xhr.onload = function(){
+				const data = JSON.parse(xhr.responseText);
+				resolve(data);
+			};
+			xhr.send();			
+		});
+		this.messages = await loadPromise;
+	}
 })
 
 Vue.component('dilogs-list', {
@@ -74,6 +75,10 @@ Vue.component('dilogs-list', {
 		messages: {
 			type: Array,
 			default: () => [],
+		},
+		showDialog: {
+			type: Number,
+			default: () => null,
 		}
 	},
 

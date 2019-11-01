@@ -16,18 +16,22 @@
 
 	<template id="news">
 		<section>
-			<div class="publications" v-for="(n, index) in publications">
+			<div class="publications" v-for="(n, index) in publications" :key="index">
 				<div class="publications_author">
 					<img :src="n.author.image" alt="">
-					<p v-html="n.author.name"></p>
+					<a :href="n.author.url">{{n.author.name}}</a>
 				</div>
-				<div v-html="n.text" class="publications_content"></div>
+				<div class="publications_content">
+					<span>{{n.text}}</span>
+					<span v-if="n.type == 'image'"><img :src="n.src"></span>
+					<span v-if="n.type == 'video'"><video :src="n.src" width="100%" controls></span>
+				</div>
 				<button @click="openComments(index)" class="comments-button">{{n.comments.length}}</button>
 				<div class="publications_comments" ref="com">
-					<div v-for="com in n.comments" class="comment">
+					<div v-for="(com, index) in n.comments" :key="index" class="comment">
 						<div class="publications_author">
 							<img :src="com.author.image" alt="">
-							<p v-html="com.author.name"></p>
+							<a :href="n.author.url">{{n.author.name}}</a>
 						</div>
 						<p>{{com.text}}</p>
 					</div>	
@@ -39,35 +43,44 @@
 	<template id="dialogs">
 		<section>
 			<dilogs-list 
+				v-if="showDialog == null"
 				:messages="messages"
-				@show="$emit('show', $event)"
-				v-show="showDialog == null"
+				:show-dialog="showDialog"
+				@show="show"
 			></dilogs-list>
 			<dial 
-				:show-dialog = "showDialog"
+				v-if="showDialog != null"
 				:messages="messages"
-				v-show="showDialog != null"
-				@close="$emit('close', $event)"
+				:show-dialog="showDialog"
+				@close="close"
 			></dial>
 		</section>		
 	</template>
 
 	<template id="dilogs-list">
 		<div ref="list">
-			<div class="dialogs-all" v-for="(n, index) in messages" @click="show(index)">
-				{{n.dialog[n.dialog.length-1]}}
+			<div class="dialogs-all" v-for="(n, index) in messages" :key="index" @click="show(index)">
+				<span class="message-author">{{n.dialog[n.dialog.length-1].author}}</span>
+				<div class="message-text">
+					<span>{{n.dialog[n.dialog.length-1].text}}</span>
+					<span class="message-date">{{n.dialog[n.dialog.length-1].date}}</span>
+				</div>
 			</div>
 		</div>
 	</template>
 
 	<template id="dial">
 		<section>
-			<div v-for="(n, index) in messages" class="dial">
-				<span  v-show="showDialog == index">
+			<div v-for="(n, index) in messages" :key="index" class="dial">
+				<span  v-if="showDialog == index">
 					<button @click="close" class="return"></button>	
 					<div class="dial-wrapper">
-						<div v-for="m in n.dialog">
-							{{m}}
+						<div v-for="(m, index) in n.dialog" :key="index" class="message">
+							<span class="message-author">{{m.author}}</span>
+							<div class="message-text">
+								<span>{{m.text}}</span>
+								<span class="message-date">{{m.date}}</span>
+							</div>
 						</div>						
 					</div>
 				</span>				
@@ -86,20 +99,15 @@
 			</nav>
 
 			<my-page 
-				v-show="showContent == 'my-page'"
+				v-if="showContent == 'my-page'"
 			></my-page>
 
 			<news 
-				v-show="showContent == 'news'"
-				:publications="publications"
+				v-if="showContent == 'news'"
 			></news>
 
 			<dialogs 
-				:show-dialog="showDialog"
-				v-show="showContent == 'dialogs'"
- 				:messages="messages" 
- 				@show="show"
- 				@close="close"
+				v-if="showContent == 'dialogs'"
 			>
 			</dialogs>	
 		</div>

@@ -86,7 +86,7 @@
 
 			.dialogs-all {
 				width: 100%;
-				height: 50px;
+				height: 60px;
 				margin: 5px;
 				padding: 5px;
 				font-size: 20px;
@@ -100,6 +100,7 @@
 				width: 100%;
 			}
 			.return {
+				outline: none;
 				margin-bottom: 30px;
 				border-radius: 50px;
 				border: none;
@@ -113,7 +114,26 @@
 			}
 			.dial-wrapper > div {
 				font-size: 20px;
+				background-color: #B6CFFC;
 			}
-			.dial-wrapper > div:nth-child(even) {
-				margin:20px 100px; 100px;
+			.dial-wrapper > div:nth-child(odd) {
+				margin:20px 100px;
+				background-color: #89B3FF;
 			}
+			.message {
+				width: 350px;
+				padding: 10px;
+			}
+				.message-author {
+					font-weight: 500;
+					color: #204FDD;
+				}
+				.message-text {
+					display: flex;
+					justify-content: space-between;
+				}
+				.message-date {
+					align-self: flex-end;
+					font-size: 13px;
+					font-style: italic;
+				}
