@@ -23,17 +23,8 @@ Vue.component('news', {
 			this.$refs.com[index].classList.toggle('open');
 		}
 	},
-	async created() {
-		const loadPromise = new Promise((resolve, reject) => {
-			const xhr = new XMLHttpRequest();
-			xhr.open('GET', 'data.json', true);
-			xhr.onload = function(){
-				const data = JSON.parse(xhr.responseText);
-				resolve(data);
-			};
-			xhr.send();			
-		});
-		this.publications = await loadPromise;
+	created() {
+		getAjax('data.json').then(data => this.publications = JSON.parse(data));
 	}
 })
 
@@ -47,7 +38,6 @@ Vue.component('dialogs', {
 	},
 	methods: {
 		show(index) {
-			// this.showDialog = index;
 			this.showDialog = index;
 		},
 		close() {
@@ -55,17 +45,8 @@ Vue.component('dialogs', {
 		}
 	},
 
-	async created() {
-		const loadPromise = new Promise((resolve, reject) => {
-			const xhr = new XMLHttpRequest();
-			xhr.open('GET', 'dialogs.json', true);
-			xhr.onload = function(){
-				const data = JSON.parse(xhr.responseText);
-				resolve(data);
-			};
-			xhr.send();			
-		});
-		this.messages = await loadPromise;
+	created() {
+		getAjax('dialogs.json').then(data => this.messages = JSON.parse(data));
 	}
 })
 
@@ -77,7 +58,6 @@ Vue.component('dilogs-list', {
 			default: () => [],
 		},
 		showDialog: {
-			type: Number,
 			default: () => null,
 		}
 	},
@@ -111,3 +91,15 @@ Vue.component('dial', {
 const vm = new Vue({
 	el: '#app'
 })
+
+async function getAjax(path) {
+	const promise = new Promise((res, rej) => {
+		const xhr = new XMLHttpRequest();
+		xhr.open('GET', path, true);
+		xhr.onload = () => {
+			res(xhr.responseText)
+		}
+		xhr.send();
+	});
+	return promise;
+}
